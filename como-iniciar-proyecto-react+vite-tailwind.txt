@@ -24,3 +24,5 @@ En index.css:
 npm install prop-types
 
 npm install react-router-dom
+
+npm install react-icons
