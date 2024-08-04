@@ -1,0 +1,36 @@
+{
+    "preguntas": {
+    "1": {
+        "pregunta": "¿Qué elemento es escencial para que las plantas realicen la fotosíntesis?",
+        "respuestas": {
+            "a": "Agua",
+            "b": "Luz solar",
+            "c": "Dióxido de carbono",
+            "d": "Tierra"
+        },
+        "ayuda":{
+            "imagen": "https://i.pinimg.com/736x/2e/dc/3b/2edc3ba682bd0d1ca808691cf166d2e7.jpg",
+            "video":  "https://youtu.be/mtGgo68VM54"
+        },
+        "respuestaCorrecta": "b",
+        "puntos": 100,
+        "justificación": "La fotosíntesis es el proceso mediante el cual las plantas convierten la luz solar en energía química, la cual es almacenada en forma de glucosa. La luz solar es la fuente de energía que impulsa la fotosíntesis, mientras que el agua y el dióxido de carbono son los elementos que se combinan para formar glucosa."
+    },
+    "2": {
+        "pregunta": "¿Cuál es el órgano encargado de bombear la sangre a través del cuerpo?",
+        "respuestas": {
+            "a": "Pulmones",
+            "b": "Hígado",
+            "c": "Corazón",
+            "d": "Cerebro"
+        },
+        "ayuda":{
+            "imagen": "https://images.emojiterra.com/google/noto-emoji/unicode-15/color/512px/1fac0.png",
+            "video":  "https://youtu.be/WN6sAN2hcFM"
+        },
+        "respuestaCorrecta": "c",
+        "puntos": 100,
+        "justificación": "El corazón es el órgano encargado de bombear la sangre a través del cuerpo. La sangre es un fluido vital que transporta oxígeno, nutrientes y desechos a través del cuerpo, y el corazón actúa como una bomba que impulsa la sangre a través de los vasos sanguíneos."
+    }
+    }
+}
