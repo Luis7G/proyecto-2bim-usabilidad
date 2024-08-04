@@ -1,36 +1,172 @@
 {
-    "preguntas": {
+  "preguntas": {
     "1": {
-        "pregunta": "¿Qué elemento es escencial para que las plantas realicen la fotosíntesis?",
-        "respuestas": {
-            "a": "Agua",
-            "b": "Luz solar",
-            "c": "Dióxido de carbono",
-            "d": "Tierra"
-        },
-        "ayuda":{
-            "imagen": "https://i.pinimg.com/736x/2e/dc/3b/2edc3ba682bd0d1ca808691cf166d2e7.jpg",
-            "video":  "https://youtu.be/mtGgo68VM54"
-        },
-        "respuestaCorrecta": "b",
-        "puntos": 100,
-        "justificación": "La fotosíntesis es el proceso mediante el cual las plantas convierten la luz solar en energía química, la cual es almacenada en forma de glucosa. La luz solar es la fuente de energía que impulsa la fotosíntesis, mientras que el agua y el dióxido de carbono son los elementos que se combinan para formar glucosa."
+      "pregunta": "¿Qué elemento es esencial para que las plantas realicen la fotosíntesis?",
+      "respuestas": {
+        "a": "Agua",
+        "b": "Luz solar",
+        "c": "Dióxido de carbono",
+        "d": "Tierra"
+      },
+      "ayuda": {
+        "imagen": "https://i.pinimg.com/736x/2e/dc/3b/2edc3ba682bd0d1ca808691cf166d2e7.jpg",
+        "video": "https://youtu.be/mtGgo68VM54"
+      },
+      "respuestaCorrecta": "b",
+      "puntos": 100,
+      "justificación": "La fotosíntesis es el proceso mediante el cual las plantas convierten la luz solar en energía química, la cual es almacenada en forma de glucosa. La luz solar es la fuente de energía que impulsa la fotosíntesis, mientras que el agua y el dióxido de carbono son los elementos que se combinan para formar glucosa."
     },
     "2": {
-        "pregunta": "¿Cuál es el órgano encargado de bombear la sangre a través del cuerpo?",
-        "respuestas": {
-            "a": "Pulmones",
-            "b": "Hígado",
-            "c": "Corazón",
-            "d": "Cerebro"
-        },
-        "ayuda":{
-            "imagen": "https://images.emojiterra.com/google/noto-emoji/unicode-15/color/512px/1fac0.png",
-            "video":  "https://youtu.be/WN6sAN2hcFM"
-        },
-        "respuestaCorrecta": "c",
-        "puntos": 100,
-        "justificación": "El corazón es el órgano encargado de bombear la sangre a través del cuerpo. La sangre es un fluido vital que transporta oxígeno, nutrientes y desechos a través del cuerpo, y el corazón actúa como una bomba que impulsa la sangre a través de los vasos sanguíneos."
+      "pregunta": "¿Cuál es el órgano encargado de bombear la sangre a través del cuerpo?",
+      "respuestas": {
+        "a": "Pulmones",
+        "b": "Hígado",
+        "c": "Corazón",
+        "d": "Cerebro"
+      },
+      "ayuda": {
+        "imagen": "https://images.emojiterra.com/google/noto-emoji/unicode-15/color/512px/1fac0.png",
+        "video": "https://youtu.be/WN6sAN2hcFM"
+      },
+      "respuestaCorrecta": "c",
+      "puntos": 100,
+      "justificación": "El corazón es el órgano encargado de bombear la sangre a través del cuerpo. La sangre es un fluido vital que transporta oxígeno, nutrientes y desechos a través del cuerpo, y el corazón actúa como una bomba que impulsa la sangre a través de los vasos sanguíneos."
+    },
+
+    "3": {
+      "pregunta": "¿Cuál fue el propósito principal del invento del microscopio?",
+      "respuestas": {
+        "a": "Observar",
+        "b": "Ampliar",
+        "c": "Visualizar",
+        "d": "Investigar"
+      },
+      "ayuda": {
+        "imagen": "https://comprarmimicroscopio.com/wp-content/uploads/2019/12/PARTES-microscopio-estereoscopico.jpg",
+        "video": "https://youtu.be/WZO1OA2_qZE?si=np17hBiSTkzbQSkd"
+      },
+      "respuestaCorrecta": "b",
+      "puntos": 100,
+      "justificación": "El invento del microscopio tuvo como propósito principal ampliar la capacidad humana para observar seres u objetos muy pequeños que son invisibles a simple vista."
+    },
+
+    "4": {
+      "pregunta": "¿Cuál es la principal función de los espejos?",
+      "respuestas": {
+        "a": "Reflejar",
+        "b": "Absorber",
+        "c": "Difundir",
+        "d": "Filtrar"
+      },
+      "ayuda": {
+        "imagen": "https://c0.klipartz.com/pngpicture/666/751/sticker-png-drawing-%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81-%D0%A4%D0%BE%D1%82%D0%BA%D0%B8-others-albom-mirror-cartoon-picture-frame-%D1%8F%D0%BD%D0%B4%D0%B5%D0%BA%D1%81-%D1%84%D0%BE%D1%82%D0%BA%D0%B8.png",
+        "video": "https://youtu.be/Tp5k0paJRAM?si=vZlENf-CF2GTljgE"
+      },
+      "respuestaCorrecta": "a",
+      "puntos": 100,
+      "justificación": "La principal función de los espejos es reflejar la luz, lo que nos permite vernos a nosotros mismos y otros objetos."
+    },
+
+    "5": {
+      "pregunta": "¿Cuál de las siguientes es un tipo de central generadora de energía?",
+      "respuestas": {
+        "a": "Submarina",
+        "b": "Transporte",
+        "c": "Refrigeración",
+        "d": "Térmica"
+      },
+      "ayuda": {
+        "imagen": "https://3.bp.blogspot.com/-1x0yIp2-UrA/UuDnyTBzmKI/AAAAAAAAADo/TSBsVrxiBoo/s1600/P1_E2_Termica.jpg",
+        "video": "https://youtu.be/mmVyQinJEQg?si=zFAo4Pwql3-D_zmN"
+      },
+      "respuestaCorrecta": "d",
+      "puntos": 100,
+      "justificación": "Una central generadora de energía puede ser de diferentes tipos, como hidroeléctrica, eólica, nuclear o térmica."
+    },
+
+    "6": {
+      "pregunta": "¿Cuál es una forma en que se comporta la luz?",
+      "respuestas": {
+        "a": "Como un rayo recto",
+        "b": "Como una onda en el agua",
+        "c": "Como una pelota",
+        "d": "Como una sombra"
+      },
+      "ayuda": {
+        "imagen": "https://www.lifeder.com/wp-content/uploads/2018/04/teor%C3%ADas-luz-ilustraci%C3%B3n-lifeder-1024x408.jpg",
+        "video": "https://youtu.be/L989QYOHg0Y?si=F3lnb7t2gj8PVRDO"
+      },
+      "respuestaCorrecta": "a",
+      "puntos": 100,
+      "justificación": ""
+    },
+
+    "7": {
+      "pregunta": "¿Cuál es la fuente principal de luz y calor de nuestro planeta?",
+      "respuestas": {
+        "a": "La luna",
+        "b": "El sol",
+        "c": "Las estrellas",
+        "d": "Los cometas"
+      },
+      "ayuda": {
+        "imagen": "https://th.bing.com/th/id/R.cb40ad4c6839c4753c11d0e81cec6381?rik=CXXWBidwNi%2fY7g&pid=ImgRaw&r=0",
+        "video": "https://youtu.be/FC1NU4F3GOI?si=6TjNE1Tv2Ezi4gKX"
+      },
+      "respuestaCorrecta": "b",
+      "puntos": 100,
+      "justificación": "El sol es la fuente principal de luz y calor de nuestro planeta. La luz y el calor del sol son esenciales para la vida en la Tierra, ya que proporcionan la energía necesaria para que las plantas realicen la fotosíntesis y los animales se mantengan calientes."
+    },
+
+    "8": {
+      "pregunta": "¿Cuál es el proceso mediante el cual las plantas convierten la luz solar en energía química?",
+      "respuestas": {
+        "a": "Fotosíntesis",
+        "b": "Respiración",
+        "c": "Transpiración",
+        "d": "Germinación"
+      },
+      "ayuda": {
+        "imagen": "https://www.lifeder.com/wp-content/uploads/2018/10/fotosintesis-esquema-724x1024.png",
+        "video": "https://youtu.be/d2DB-kWxg-w?si=eAUZWDvJ47yLdHW_"
+      },
+      "respuestaCorrecta": "a",
+      "puntos": 100,
+      "justificación": "La fotosíntesis es el proceso mediante el cual las plantas convierten la luz solar en energía química, la cual es almacenada en forma de glucosa. La fotosíntesis es esencial para la vida en la Tierra, ya que proporciona la energía necesaria para que las plantas crezcan y se reproduzcan."
+    },
+
+    "9": {
+      "pregunta": "¿Cuál es el órgano encargado de filtrar la sangre y eliminar las toxinas del cuerpo?",
+      "respuestas": {
+        "a": "Pulmones",
+        "b": "Hígado",
+        "c": "Corazón",
+        "d": "Cerebro"
+      },
+      "ayuda": {
+        "imagen": "https://static.vecteezy.com/system/resources/previews/003/794/926/original/healthy-happy-smiling-cute-liver-character-illustration-vector.jpg",
+        "video": "https://youtu.be/bNfz7OuqRmg?si=ebs03NjciK0lEJGH"
+      },
+      "respuestaCorrecta": "b",
+      "puntos": 100,
+      "justificación": "El hígado es el órgano encargado de filtrar la sangre y eliminar las toxinas del cuerpo. El hígado es un órgano vital que desempeña muchas funciones importantes en el cuerpo, como la producción de bilis, la descomposición de las toxinas y la regulación de los niveles de glucosa en la sangre."
+    },
+
+    "10": {
+      "pregunta": "¿Cuál es la principal función de los pulmones?",
+      "respuestas": {
+        "a": "Bombear la sangre",
+        "b": "Filtrar la sangre",
+        "c": "Absorber los nutrientes",
+        "d": "Intercambiar oxígeno y dióxido de carbono"
+      },
+      "ayuda": {
+        "imagen": "https://th.bing.com/th/id/OIP.I0UK_R9VFbiogDnYVxwGaQHaHa?rs=1&pid=ImgDetMain",
+        "video": "https://youtu.be/LbqHZAstRcQ?si=AZnn77fuBCoG7u3q"
+      },
+      "respuestaCorrecta": "d",
+      "puntos": 100,
+      "justificación": "La principal función de los pulmones es intercambiar oxígeno y dióxido de carbono. Los pulmones son los órganos responsables de la respiración, ya que absorben el oxígeno del aire y eliminan el dióxido de carbono de la sangre."
     }
-    }
+  }
 }
