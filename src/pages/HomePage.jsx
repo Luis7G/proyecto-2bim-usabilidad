@@ -1,8 +1,6 @@
-import React from "react";
-import Header from "../components/Header";
+// import Header from "../components/Header";
 import HomeBody from "../components/homeBody";
 import Footer from "./../components/FooterPuntuation";
-
 
 function HomePage() {
   return (
