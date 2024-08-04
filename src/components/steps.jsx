@@ -1,5 +1,6 @@
+// components/steps/Step.jsx
 import PropTypes from "prop-types"; // Importa PropTypes
-import MaximizeIcon from "./icons/maximizeButton"; // Importa el icono SVG
+import MaximizeIcon from "../icons/maximizeButton"; // Asegúrate de que este icono SVG esté correctamente importado
 
 const InfoCard = ({ title, description }) => (
   <div className="flex justify-between items-center bg-white rounded-lg p-4 shadow-md mb-4">
@@ -13,35 +14,32 @@ const InfoCard = ({ title, description }) => (
   </div>
 );
 
-// Agrega validación de propiedades
+// Añade validación de propiedades para InfoCard
 InfoCard.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 };
 
-const InfoSection = () => {
-  return (
-    <div className="max-w-4xl mx-auto bg-[#0070c2] p-6 rounded-lg flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 mt-8">
-      <div className="flex-1">
-        <InfoCard
-          title="1. Imagen de Ayuda"
-          description="Haz clic en la imagen para ver pistas y recordar detalles importantes sobre la pregunta."
-        />
-        <InfoCard
-          title="2. Tiempo y Score"
-          description="Observa el tiempo restante y tu puntaje actual en la parte superior de la pantalla."
-        />
-        <InfoCard
-          title="3. Audio de Pregunta"
-          description="Haz clic en el ícono de audio para escuchar la pregunta en voz alta."
-        />
-        <InfoCard
-          title="4. Pantalla Completa"
-          description="Maximiza la pantalla haciendo clic en el ícono de pantalla completa para una mejor experiencia."
-        />
-      </div>
-    </div>
-  );
+const Step = ({ instructions }) => (
+  <div className="flex-1 flex flex-col space-y-4">
+    {instructions.map((instruction, index) => (
+      <InfoCard
+        key={index}
+        title={instruction.title}
+        description={instruction.description}
+      />
+    ))}
+  </div>
+);
+
+// Añade validación de propiedades con PropTypes
+Step.propTypes = {
+  instructions: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
-export default InfoSection;
+export default Step;
