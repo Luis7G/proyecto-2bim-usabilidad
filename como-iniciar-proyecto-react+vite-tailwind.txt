@@ -22,3 +22,5 @@ En index.css:
 @tailwind utilities;
 
 npm install prop-types
+
+npm install react-router-dom

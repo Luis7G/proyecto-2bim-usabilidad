@@ -1,7 +1,7 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import InstructionsPage from "./pages/InstructionsPage";
+import ShortcutsPage from "./pages/ShortcutsPage"; // Importa la nueva página
 import GamePage from "./pages/QuestionPage";
 
 function App() {
@@ -9,7 +9,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} /> {/* Ruta a HomePage */}
-        <Route path="/instructions" element={<InstructionsPage />} /> {/* Ruta a InstructionsPage */}
+        <Route path="/instructions/*" element={<InstructionsPage />} />{" "}
+        <Route path="/shortcuts/*" element={<ShortcutsPage />} />{" "}
+
         <Route path="/game" element={<GamePage />} /> {/* Ruta a GamePage */}
       </Routes>
     </Router>
