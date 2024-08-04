@@ -1,11 +1,8 @@
 import PlayButtonIcon from "./icons/playButtonIcon";
 import React from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-function HomeBody() {
-    const Navigate = useNavigate();
-    function handleButtonClick() {
-        Navigate("/game");
-    }
+function HomeBody({handleButtonClick}) {
+    
   return (
     <body>
         <button id="playButton"

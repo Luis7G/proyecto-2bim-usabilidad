@@ -17,7 +17,7 @@ const ShortcutCard = ({ title, description, onMaximize }) => (
   </div>
 );
 
-const Shortcuts = () => {
+const Shortcuts = ({handleButtonClick}) => {
   const navigate = useNavigate();
 
   const shortcuts = [
@@ -67,7 +67,9 @@ const Shortcuts = () => {
             />
           ))}
         </div>
-        <button className="w-full bg-[#568CDD] text-white font-bold py-2 px-4 rounded mt-6">
+        <button 
+        onClick={handleButtonClick}
+        className="w-full bg-[#568CDD] text-white font-bold py-2 px-4 rounded mt-6">
           CONTINUAR
         </button>
       </div>
