@@ -7,7 +7,7 @@ function HomePage() {
   return (
     <div>
       <Header />
-      <HomeBody></HomeBody>
+      <HomeBody/>
     </div>
   );
 }
