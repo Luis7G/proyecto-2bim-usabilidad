@@ -1,9 +1,12 @@
-
+import PlayButtonIcon from "./icons/playButtonIcon";
 function HomeBody() {
   return (
-    <div>
-      <h1>Home Body</h1>
-    </div>
+    <body>
+        <div className="flex flex-col justify-center items-center h-full">
+      <PlayButtonIcon></PlayButtonIcon>
+      </div>
+    </body>
   );
 }
+
 export default HomeBody;
