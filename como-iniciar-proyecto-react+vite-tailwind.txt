@@ -1,0 +1,22 @@
+Vite+React:
+npm create vite@latest
+npm install
+npm run dev
+
+eliminar index.css
+
+Tailwind:
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+en tailwind.config.js
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+	    './pages/**/*.{html,js}',
+    './components/**/*.{html,js}',
+  ],
+  
+En index.css:
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
