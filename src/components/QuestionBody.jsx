@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MultimediaComponent from './Question/MultimediaComponent';
-
+import FormsComponent from './Question/FormsComponent';
 function QuestionBody() {
     const question = {
         title: "¿Cuál es el nombre de este animal?",
@@ -13,7 +13,7 @@ function QuestionBody() {
         <MultimediaComponent question={question}/>
       </div>
       <div>
-
+        <FormsComponent/>
       </div>
     </body>
   );
