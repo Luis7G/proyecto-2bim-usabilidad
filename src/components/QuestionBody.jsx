@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import MultimediaComponent from './Question/MultimediaComponent';
-import FormsComponent from './Question/FormsComponent';
-import ResultComponent from './Question/ResultComponent';
-import questionsData from '../data/questions.json';
+import React, { useState, useEffect } from "react";
+import MultimediaComponent from "./Question/MultimediaComponent";
+import FormsComponent from "./Question/FormsComponent";
+import questionsData from "../data/questions.json";
 
 function QuestionBody() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [timeElapsed, setTimeElapsed] = useState(0);
-  const [showResult, setShowResult] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
 
-  const questionsArray = Object.entries(questionsData.preguntas).map(([key, value]) => ({
-    id: key,
-    ...value,
-  }));
+  const questionsArray = Object.entries(questionsData.preguntas).map(
+    ([key, value]) => ({
+      id: key,
+      ...value,
+    })
+  );
 
   const currentQuestion = questionsArray[currentQuestionIndex];
 
@@ -26,16 +25,12 @@ function QuestionBody() {
   }, []);
 
   const handleAnswer = (selectedOption) => {
-    const correct = selectedOption === currentQuestion.respuestaCorrecta;
-    setIsCorrect(correct);
-    if (correct) {
+    if (selectedOption === currentQuestion.respuestaCorrecta) {
       setScore(score + currentQuestion.puntos);
     }
-    setShowResult(true); // Mostrar el resultado
   };
 
   const handleNextQuestion = () => {
-    setShowResult(false);
     if (currentQuestionIndex < questionsArray.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
@@ -44,29 +39,29 @@ function QuestionBody() {
   };
 
   return (
-    <div>
-      {showResult ? (
-        <ResultComponent
-          isCorrect={isCorrect}
-          justification={currentQuestion.justificación}
+    <div className="flex flex-col min-h-screen justify-between items-center">
+      <div className="flex-grow w-full max-w-3xl p-4">
+        <MultimediaComponent question={currentQuestion} />
+        <FormsComponent
+          question={currentQuestion}
+          handleAnswer={handleAnswer}
           handleNextQuestion={handleNextQuestion}
         />
-      ) : (
-        <>
-          <MultimediaComponent question={currentQuestion} />
-          <FormsComponent
-            question={currentQuestion}
-            handleAnswer={handleAnswer}
-          />
-        </>
-      )}
-      <div className="mt-4 flex justify-between items-center">
-        <span>Pregunta: {currentQuestionIndex + 1}/{questionsArray.length}</span>
-        <span>Tiempo: {timeElapsed}s</span>
-        <span>Puntuación: {score}</span>
+      </div>
+      <div className="w-full max-w-3xl flex justify-around items-center bg-white p-4 shadow-md border-t border-gray-300">
+        <span className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2">
+          Pregunta: {currentQuestionIndex + 1}/{questionsArray.length}
+        </span>
+        <span className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2">
+          Tiempo: {String(Math.floor(timeElapsed / 60)).padStart(2, '0')}:{String(timeElapsed % 60).padStart(2, '0')}
+        </span>
+        <span className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2">
+          Puntuación: {score}
+        </span>
       </div>
     </div>
   );
 }
 
 export default QuestionBody;
+
