@@ -1,25 +1,40 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import ResultHeader from './ResultHeader';
-import QuestionCard from './QuestionCard';
-import AnswerCard from './AnswerCard';
-import FeedbackCard from './FeedbackCard';
-import ShareSection from './ShareSection';
+import React from "react";
+import PropTypes from "prop-types";
+import ResultHeader from "./ResultHeader";
+import QuestionCard from "./QuestionCard";
+import AnswerCard from "./AnswerCard";
+import FeedbackCard from "./FeedbackCard";
+import ShareSection from "./ShareSection";
 
-function FinalResult({ results, totalPoints, totalTime, totalCorrectAnswers, onRestartQuiz }) {
+function FinalResult({
+  results,
+  totalPoints,
+  totalTime,
+  totalCorrectAnswers,
+  onRestartQuiz,
+}) {
   return (
     <div className="p-4">
-      <ResultHeader points={totalPoints} time={totalTime} correctAnswers={totalCorrectAnswers} />
+      <ResultHeader
+        points={totalPoints}
+        time={totalTime}
+        correctAnswers={totalCorrectAnswers}
+      />
       <div className="overflow-auto max-h-96">
         {results.map((result, index) => (
           <div
             key={index}
             className={`p-4 rounded-lg mb-4 shadow-md ${
-              result.chosenAnswer === result.correctAnswer ? 'bg-green-500' : 'bg-red-500'
+              result.chosenAnswer === result.correctAnswer
+                ? "bg-green-500"
+                : "bg-red-500"
             }`}
           >
             <QuestionCard question={result.question} />
-            <AnswerCard answer={result.chosenAnswer} title="Respuesta Elegida" />
+            <AnswerCard
+              answer={result.chosenAnswer}
+              title="Respuesta Elegida"
+            />
             <FeedbackCard feedback={result.justification} />
           </div>
         ))}
