@@ -1,3 +1,4 @@
+import React from "react";
 import InstructionsHeader from "../components/InstructionsHeader";
 import ResultHeader from "../components/resultsComponents/ResultHeader";
 import QuestionCard from "../components/resultsComponents/QuestionCard";
@@ -5,38 +6,32 @@ import AnswerCard from "../components/resultsComponents/AnswerCard";
 import FeedbackCard from "../components/resultsComponents/FeedbackCard";
 import ShareSection from "../components/resultsComponents/ShareSection";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
-function ResultPage() {
-  const Navigate = useNavigate();
+function ResultPage({ results, totalPoints, totalTime, totalCorrectAnswers }) {
+  const navigate = useNavigate();
+
   function handleButtonClick() {
-    Navigate("/");
+    navigate("/");
   }
-
-  // Estos datos deberían venir de tu estado o props
-  const result = {
-    points: 100,
-    time: "5:55",
-    correctAnswers: 6,
-    question:
-      "El invento del microscopio ha servido para ver seres u objetos muy pequeños.",
-    answer: "Observar",
-    feedback:
-      "El microscopio es como una lupa gigante que nos permite ver cosas tan pequeñas que nuestros ojos no pueden ver solos. Gracias a él hemos descubierto un mini mundo lleno de bacterias y células invisibles.",
-  };
 
   return (
     <div className="min-h-screen bg-blue-100">
       <InstructionsHeader homeActivity={handleButtonClick} />
       <div className="container mx-auto p-4">
         <ResultHeader
-          points={result.points}
-          time={result.time}
-          correctAnswers={result.correctAnswers}
+          points={totalPoints}
+          time={new Date(totalTime * 1000).toISOString().substr(11, 8)}
+          correctAnswers={totalCorrectAnswers}
         />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-          <QuestionCard question={result.question} />
-          <AnswerCard answer={result.answer} />
-          <FeedbackCard feedback={result.feedback} />
+        <div className="overflow-auto max-h-96 grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+          {results.map((result, index) => (
+            <div key={index} className="col-span-3 md:col-span-1">
+              <QuestionCard question={result.question} />
+              <AnswerCard answer={result.correctAnswer} />
+              <FeedbackCard feedback={result.justification} />
+            </div>
+          ))}
         </div>
         <ShareSection />
         <button className="mt-4 bg-blue-500 text-white rounded-lg px-4 py-2 w-full">
@@ -46,5 +41,18 @@ function ResultPage() {
     </div>
   );
 }
+
+ResultPage.propTypes = {
+  results: PropTypes.arrayOf(
+    PropTypes.shape({
+      question: PropTypes.string.isRequired,
+      correctAnswer: PropTypes.string.isRequired,
+      justification: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  totalPoints: PropTypes.number.isRequired,
+  totalTime: PropTypes.number.isRequired,
+  totalCorrectAnswers: PropTypes.number.isRequired,
+};
 
 export default ResultPage;

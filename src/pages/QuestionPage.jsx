@@ -1,6 +1,5 @@
 import Header from "../components/Header";
 import QuestionBody from "../components/QuestionBody";
-import QuestionFooter from "../components/QuestionFooter";
 import background from "../assets/images/g-home.png";
 function QuestionPage() {
   return (
@@ -12,7 +11,6 @@ function QuestionPage() {
       <div className="relative z-10 flex flex-col min-h-screen">
         <Header name="Cienias Naturales" />
         <QuestionBody />
-        <QuestionFooter />
       </div>
     </div>
   );
