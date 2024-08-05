@@ -10,6 +10,7 @@ import PropTypes from "prop-types";
 
 function ResultPage({ results, totalPoints, totalTime, totalCorrectAnswers }) {
   const navigate = useNavigate();
+
   function handleButtonClick() {
     navigate("/");
   }
