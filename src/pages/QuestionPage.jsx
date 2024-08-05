@@ -11,8 +11,10 @@ function QuestionPage() {
       />
       <div className="relative z-10 flex flex-col min-h-screen">
         <Header name="Cienias Naturales" />
-        <QuestionBody />
-        <QuestionFooter />
+        <div className="flex relative flex-grow">
+           <QuestionBody />
+        </div>
+        
       </div>
     </div>
   );
