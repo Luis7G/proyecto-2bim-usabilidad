@@ -1,6 +1,16 @@
-import { FaWhatsapp, FaFacebook, FaInstagram, FaTelegram, FaTiktok } from 'react-icons/fa';
+import {
+  FaWhatsapp,
+  FaFacebook,
+  FaInstagram,
+  FaTelegram,
+  FaTiktok,
+} from "react-icons/fa";
 
 function ShareSection() {
+  const openLink = (url) => {
+    window.open(url, "_blank");
+  };
+
   return (
     <div
       className="bg-purple-400 rounded-lg p-2 flex items-center justify-between"
