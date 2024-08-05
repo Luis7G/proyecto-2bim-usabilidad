@@ -3,21 +3,36 @@ import { useNavigate } from "react-router-dom";
 import MaximizeButton from "./icons/maximizeButton";
 
 const ShortcutCard = ({ title, description, onMaximize }) => (
-  <div className="bg-white rounded-lg p-4 shadow-md mb-4 flex justify-between items-start">
+  <div
+    className="bg-white rounded-lg p-4 shadow-md mb-4 flex justify-between items-start"
+    tabIndex="0"
+    aria-label={`Acceso directo: ${title}`}
+  >
     <div>
-      <h2 className="text-black font-bold">{title}</h2>
-      <p className="text-black mt-1 text-sm text-justify">{description}</p>
+      <h2 className="text-black font-bold" tabIndex="0" aria-label={title}>
+        {title}
+      </h2>
+      <p
+        className="text-black mt-1 text-sm text-justify"
+        tabIndex="0"
+        aria-label={`Descripción: ${description}`}
+      >
+        {description}
+      </p>
     </div>
     <div
       className="bg-white rounded-full p-1 flex items-center justify-center shadow-lg w-8 h-8 ml-2 cursor-pointer"
       onClick={onMaximize}
+      tabIndex="0"
+      aria-label="Maximizar acceso directo"
+      role="button"
     >
-      <MaximizeButton className="w-5 h-5 text-[#0070c2]" />
+      <MaximizeButton className="w-5 h-5 text-[#0070c2]" aria-hidden="true" />
     </div>
   </div>
 );
 
-const Shortcuts = ({handleButtonClick}) => {
+const Shortcuts = ({ handleButtonClick }) => {
   const navigate = useNavigate();
 
   const shortcuts = [
@@ -50,13 +65,25 @@ const Shortcuts = ({handleButtonClick}) => {
 
   return (
     <>
-      <div className="bg-[#568CDD] rounded-full p-4 mb-6 mt-6">
-        <h1 className="text-white text-3xl font-bold flex justify-center">
+      <div
+        className="bg-[#568CDD] rounded-full p-4 mb-6 mt-6"
+        tabIndex="0"
+        aria-label="Encabezado de accesos directos"
+      >
+        <h1
+          className="text-white text-3xl font-bold flex justify-center"
+          tabIndex="0"
+          aria-label="Accesos Directos"
+        >
           Accesos Directos
         </h1>
       </div>
 
-      <div className="max-w-4xl mx-auto bg-[#0070c2] p-6 rounded-lg">
+      <div
+        className="max-w-4xl mx-auto bg-[#0070c2] p-6 rounded-lg"
+        tabIndex="0"
+        aria-label="Lista de accesos directos"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {shortcuts.map((shortcut) => (
             <ShortcutCard
@@ -67,9 +94,12 @@ const Shortcuts = ({handleButtonClick}) => {
             />
           ))}
         </div>
-        <button 
-        onClick={handleButtonClick}
-        className="w-full bg-[#568CDD] text-white font-bold py-2 px-4 rounded mt-6">
+        <button
+          onClick={handleButtonClick}
+          className="w-full bg-[#568CDD] text-white font-bold py-2 px-4 rounded mt-6"
+          tabIndex="0"
+          aria-label="Continuar a la siguiente sección"
+        >
           CONTINUAR
         </button>
       </div>

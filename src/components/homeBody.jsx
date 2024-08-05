@@ -1,17 +1,19 @@
 import PlayButtonIcon from "./icons/playButtonIcon";
 import React from "react";
-import { Navigate, useNavigate } from "react-router-dom";
-function HomeBody({handleButtonClick}) {
-    
+
+function HomeBody({ handleButtonClick }) {
   return (
-    <body>
-        <button id="playButton"
-        onClick={handleButtonClick} 
-        className="flex flex-col justify-center items-center h-full transform transition-transform duration-200 hover:scale-105" 
-        aria-label="Iniciar el juego">
-      <PlayButtonIcon></PlayButtonIcon>
+    <main>
+      <button
+        id="playButton"
+        onClick={handleButtonClick}
+        className="flex flex-col justify-center items-center h-full transform transition-transform duration-200 hover:scale-105"
+        aria-label="Iniciar el juego"
+        tabIndex="0"
+      >
+        <PlayButtonIcon />
       </button>
-    </body>
+    </main>
   );
 }
 
