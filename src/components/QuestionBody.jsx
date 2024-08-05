@@ -84,7 +84,8 @@ function QuestionBody() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen justify-between items-center">
+    <div className="flex flex-col justify-between items-center">
+      <div className="flex-grow w-full max-w-3xl"></div>
       <div className="flex-grow w-full max-w-3xl">
         {showResult ? (
           <ResultComponent
@@ -108,7 +109,8 @@ function QuestionBody() {
           Pregunta: {currentQuestionIndex + 1}/{questionsArray.length}
         </span>
         <span className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2">
-          Tiempo: {String(Math.floor(timeElapsed / 60)).padStart(2, '0')}:{String(timeElapsed % 60).padStart(2, '0')}
+          Tiempo: {String(Math.floor(timeElapsed / 60)).padStart(2, "0")}:
+          {String(timeElapsed % 60).padStart(2, "0")}
         </span>
         <span className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2">
           Puntuación: {score}
@@ -119,4 +121,3 @@ function QuestionBody() {
 }
 
 export default QuestionBody;
-
