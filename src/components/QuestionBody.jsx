@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import MultimediaComponent from './Question/MultimediaComponent';
-import FormsComponent from './Question/FormsComponent';
-import ResultComponent from './Question/ResultComponent';
-import FinalResult from './resultsComponents/FinalResult';
-import questionsData from '../data/questions.json';
+import React, { useState, useEffect } from "react";
+import MultimediaComponent from "./Question/MultimediaComponent";
+import FormsComponent from "./Question/FormsComponent";
+import ResultComponent from "./Question/ResultComponent";
+import FinalResult from "./resultsComponents/FinalResult";
+import questionsData from "../data/questions.json";
 
 function QuestionBody() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -15,10 +15,12 @@ function QuestionBody() {
   const [results, setResults] = useState([]);
   const [finalTime, setFinalTime] = useState(null);
 
-  const questionsArray = Object.entries(questionsData.preguntas).map(([key, value]) => ({
-    id: key,
-    ...value,
-  }));
+  const questionsArray = Object.entries(questionsData.preguntas).map(
+    ([key, value]) => ({
+      id: key,
+      ...value,
+    })
+  );
 
   const currentQuestion = questionsArray[currentQuestionIndex];
 
@@ -39,8 +41,9 @@ function QuestionBody() {
       ...prevResults,
       {
         question: currentQuestion.pregunta,
-        chosenAnswer: currentQuestion.respuestas[selectedOption], // Respuesta elegida por el usuario
-        correctAnswer: currentQuestion.respuestas[currentQuestion.respuestaCorrecta],
+        chosenAnswer: currentQuestion.respuestas[selectedOption],
+        correctAnswer:
+          currentQuestion.respuestas[currentQuestion.respuestaCorrecta],
         justification: currentQuestion.justificación,
       },
     ]);
@@ -57,13 +60,25 @@ function QuestionBody() {
     }
   };
 
+  const handleRestartQuiz = () => {
+    setCurrentQuestionIndex(0);
+    setScore(0);
+    setTimeElapsed(0);
+    setResults([]);
+    setFinalTime(null);
+    setQuizCompleted(false);
+  };
+
   if (quizCompleted) {
     return (
       <FinalResult
         results={results}
         totalPoints={score}
         totalTime={new Date(finalTime * 1000).toISOString().substr(11, 8)}
-        totalCorrectAnswers={results.filter((r) => r.chosenAnswer === r.correctAnswer).length}
+        totalCorrectAnswers={
+          results.filter((r) => r.chosenAnswer === r.correctAnswer).length
+        }
+        onRestartQuiz={handleRestartQuiz}
       />
     );
   }
@@ -86,8 +101,12 @@ function QuestionBody() {
         </>
       )}
       <div className="mt-4 flex justify-between items-center">
-        <span>Pregunta: {currentQuestionIndex + 1}/{questionsArray.length}</span>
-        <span>Tiempo: {new Date(timeElapsed * 1000).toISOString().substr(11, 8)}</span>
+        <span>
+          Pregunta: {currentQuestionIndex + 1}/{questionsArray.length}
+        </span>
+        <span>
+          Tiempo: {new Date(timeElapsed * 1000).toISOString().substr(11, 8)}
+        </span>
         <span>Puntuación: {score}</span>
       </div>
     </div>
