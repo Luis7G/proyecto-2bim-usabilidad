@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 
 function AnswerCard({ answer }) {
   return (
-    <div className="bg-blue-600 rounded-lg p-4 mb-4">
-      <h3 className="text-white font-bold mb-2">Respuesta correcta</h3>
-      <p className="text-white">{answer}</p>
+    <div className="bg-blue-600 rounded-lg p-4 mb-4" tabIndex="0" aria-label="Tarjeta de respuesta correcta">
+      <h3 className="text-white font-bold mb-2" tabIndex="0" aria-label="Respuesta correcta">Respuesta correcta</h3>
+      <p className="text-white" tabIndex="0" aria-label={`La respuesta es ${answer}`}>{answer}</p>
     </div>
   );
 }

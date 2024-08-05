@@ -25,10 +25,14 @@ function MultimediaComponent({ question }) {
         src={embedUrl}
         title="Video de ayuda"
         allowFullScreen
+        tabIndex="0" // Permite la navegación con el teclado
+        aria-label="Video de ayuda"
       ></iframe>
       <div className="flex-1 text-center">
-        <h2 className="text-xl font-bold mb-2">{question.pregunta}</h2>
-        <button onClick={readAloud} aria-label="Leer en voz alta">
+        <h2 className="text-xl font-bold mb-2" tabIndex="0" aria-label={`Pregunta: ${question.pregunta}`}>
+          {question.pregunta}
+        </h2>
+        <button onClick={readAloud} aria-label="Leer pregunta y opciones en voz alta" tabIndex="0">
           🎤
         </button>
       </div>
@@ -36,6 +40,8 @@ function MultimediaComponent({ question }) {
         className="w-1/3 h-32"
         src={question.ayuda.imagen}
         alt="Imagen de ayuda"
+        tabIndex="0"
+        aria-label="Imagen de ayuda"
       />
     </div>
   );

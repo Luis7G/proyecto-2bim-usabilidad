@@ -7,9 +7,10 @@ import ShareSection from "../components/resultsComponents/ShareSection";
 import { useNavigate } from "react-router-dom";
 
 function ResultPage() {
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
+
   function handleButtonClick() {
-    Navigate("/");
+    navigate("/");
   }
 
   // Estos datos deberían venir de tu estado o props
@@ -32,14 +33,24 @@ function ResultPage() {
           points={result.points}
           time={result.time}
           correctAnswers={result.correctAnswers}
+          tabIndex="0"
+          aria-label={`Resultados: Puntos ${result.points}, Tiempo ${result.time}, Respuestas correctas ${result.correctAnswers}`}
         />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-          <QuestionCard question={result.question} />
-          <AnswerCard answer={result.answer} />
-          <FeedbackCard feedback={result.feedback} />
+        <div
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4"
+          tabIndex="0"
+          aria-label="Sección de resultados detallados"
+        >
+          <QuestionCard question={result.question} tabIndex="0" aria-label={`Pregunta: ${result.question}`} />
+          <AnswerCard answer={result.answer} tabIndex="0" aria-label={`Respuesta: ${result.answer}`} />
+          <FeedbackCard feedback={result.feedback} tabIndex="0" aria-label={`Retroalimentación: ${result.feedback}`} />
         </div>
-        <ShareSection />
-        <button className="mt-4 bg-blue-500 text-white rounded-lg px-4 py-2 w-full">
+        <ShareSection tabIndex="0" aria-label="Sección para compartir resultados" />
+        <button
+          className="mt-4 bg-blue-500 text-white rounded-lg px-4 py-2 w-full"
+          tabIndex="0"
+          aria-label="Ver más resultados"
+        >
           Ver más...
         </button>
       </div>

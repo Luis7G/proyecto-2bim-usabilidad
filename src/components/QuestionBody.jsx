@@ -11,10 +11,12 @@ function QuestionBody() {
   const [showResult, setShowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
 
-  const questionsArray = Object.entries(questionsData.preguntas).map(([key, value]) => ({
-    id: key,
-    ...value,
-  }));
+  const questionsArray = Object.entries(questionsData.preguntas).map(
+    ([key, value]) => ({
+      id: key,
+      ...value,
+    })
+  );
 
   const currentQuestion = questionsArray[currentQuestionIndex];
 
@@ -60,10 +62,25 @@ function QuestionBody() {
           />
         </>
       )}
-      <div className="mt-4 flex justify-between items-center">
-        <span>Pregunta: {currentQuestionIndex + 1}/{questionsArray.length}</span>
-        <span>Tiempo: {timeElapsed}s</span>
-        <span>Puntuación: {score}</span>
+      <div
+        className="mt-4 flex justify-between items-center"
+        tabIndex="0"
+        aria-label="Estado actual del quiz"
+      >
+        <span
+          tabIndex="0"
+          aria-label={`Pregunta número: ${currentQuestionIndex + 1} de ${
+            questionsArray.length
+          }`}
+        >
+          Pregunta: {currentQuestionIndex + 1}/{questionsArray.length}
+        </span>
+        <span tabIndex="0" aria-label={`Tiempo transcurrido: ${timeElapsed} segundos`}>
+          Tiempo: {timeElapsed}s
+        </span>
+        <span tabIndex="0" aria-label={`Puntuación actual: ${score}`}>
+          Puntuación: {score}
+        </span>
       </div>
     </div>
   );

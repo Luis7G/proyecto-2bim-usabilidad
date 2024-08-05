@@ -6,20 +6,29 @@ import bgImage from "../assets/images/bg-instructions.png"; // Importa la imagen
 import { useNavigate } from "react-router-dom";
 
 function InstructionsPage() {
-  const Navigate = useNavigate();
-    function handleButtonClick() {
-        Navigate("/");
-    }
+  const navigate = useNavigate();
+
+  function handleButtonClick() {
+    navigate("/");
+  }
+
   return (
     <div
       className="relative min-h-screen bg-cover bg-center"
       style={{ backgroundImage: `url(${bgImage})` }}
+      tabIndex="0"
+      aria-label="Página de instrucciones"
     >
-      <InstructionsHeader homeActivity={handleButtonClick}/>
-      <Routes>
-        <Route path="/" element={<InstructionsSteps />} />
-        <Route path="section/:id" element={<SectionDetail />} />
-      </Routes>
+      <InstructionsHeader homeActivity={handleButtonClick} />
+      <main
+        tabIndex="0"
+        aria-label="Sección principal de instrucciones"
+      >
+        <Routes>
+          <Route path="/" element={<InstructionsSteps />} />
+          <Route path="section/:id" element={<SectionDetail />} />
+        </Routes>
+      </main>
     </div>
   );
 }
