@@ -9,7 +9,7 @@ function QuestionPage() {
         style={{ backgroundImage: `url(${background})` }}
       />
       <div className="relative z-10 flex flex-col min-h-screen">
-        <Header name="Cienias Naturales" />
+        <Header name="Ciencias Naturales" />
         <QuestionBody />
       </div>
     </div>
