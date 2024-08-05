@@ -1,6 +1,5 @@
 import Header from "../components/Header";
 import QuestionBody from "../components/QuestionBody";
-import QuestionFooter from "../components/QuestionFooter";
 import background from "../assets/images/g-home.png";
 
 function QuestionPage() {
