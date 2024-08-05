@@ -106,14 +106,26 @@ function QuestionBody() {
         )}
       </div>
 
-      <div className="w-full max-w-3xl flex justify-around items-center bg-white p-4 shadow-md border-t border-gray-300">
-        <span className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2">
+      <div 
+      tabIndex={0}
+        aria-label="Sección de preguntas"
+      className="w-full max-w-3xl flex justify-around items-center bg-white p-4 shadow-md border-t border-gray-300">
+        <span 
+        tabIndex={0}
+            aria-label={`Pregunta: ${currentQuestionIndex + 1} de ${questionsArray.length}`}
+        className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2">
           Pregunta: {currentQuestionIndex + 1}/{questionsArray.length}
         </span>
-        <span className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2">
+        <span 
+        tabIndex={0}
+            aria-label={`Tiempo: ${String(Math.floor(timeElapsed / 60)).padStart(2, '0')}:${String(timeElapsed % 60).padStart(2, '0')}`}
+        className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2">
           Tiempo: {String(Math.floor(timeElapsed / 60)).padStart(2, '0')}:{String(timeElapsed % 60).padStart(2, '0')}
         </span>
-        <span className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2">
+        <span 
+        tabIndex={0}
+            aria-label={`Puntuación: ${score}`}
+        className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2">
           Puntuación: {score}
         </span>
       </div>
