@@ -123,8 +123,13 @@ function QuestionBody() {
         className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2">
           Tiempo: {String(Math.floor(timeElapsed / 60)).padStart(2, '0')}:{String(timeElapsed % 60).padStart(2, '0')}
         </span>
-        <span className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2 flex items-center">
-          <CupIcon className="mr-2" /> {score}
+
+        <span 
+        tabIndex={0}
+          className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2 flex items-center">
+          <CupIcon 
+          tabIndex={0}
+          className="mr-2" aria-label="copa de puntuacion"/> {score}
         </span>
       </div>
     </div>
