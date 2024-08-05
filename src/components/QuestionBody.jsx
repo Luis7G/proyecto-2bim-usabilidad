@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
-import MultimediaComponent from "./Question/MultimediaComponent";
-import FormsComponent from "./Question/FormsComponent";
-import questionsData from "../data/questions.json";
+import React, { useState, useEffect } from 'react';
+import MultimediaComponent from './Question/MultimediaComponent';
+import FormsComponent from './Question/FormsComponent';
+import ResultComponent from './Question/ResultComponent';
+import questionsData from '../data/questions.json';
 
 function QuestionBody() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [timeElapsed, setTimeElapsed] = useState(0);
+  const [showResult, setShowResult] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
 
   const questionsArray = Object.entries(questionsData.preguntas).map(
     ([key, value]) => ({
@@ -25,13 +28,16 @@ function QuestionBody() {
   }, []);
 
   const handleAnswer = (selectedOption) => {
-    if (selectedOption === currentQuestion.respuestaCorrecta) {
+    const correct = selectedOption === currentQuestion.respuestaCorrecta;
+    setIsCorrect(correct);
+    if (correct) {
       setScore(score + currentQuestion.puntos);
     }
     setShowResult(true);
   };
 
   const handleNextQuestion = () => {
+    setShowResult(false);
     if (currentQuestionIndex < questionsArray.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
@@ -40,7 +46,10 @@ function QuestionBody() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen justify-between items-center">
+    <div className="flex flex-col justify-between items-center">
+      <div className="flex-grow w-full max-w-3xl" >
+
+      </div>
       <div className="flex-grow w-full max-w-3xl">
         {showResult ? (
           <ResultComponent
