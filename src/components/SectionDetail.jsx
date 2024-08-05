@@ -39,14 +39,33 @@ const SectionDetail = () => {
   }
 
   return (
-    <div className="w-full h-screen flex flex-col items-center justify-center bg-white p-4">
-      <h2 className="text-3xl font-bold mb-4">{section.title}</h2>
-      <p className="text-lg text-center">{section.content}</p>
+    <div
+      className="w-full h-screen flex flex-col items-center justify-center bg-white p-4"
+      tabIndex="0"
+      aria-label={`Detalle de la sección ${section.title}`}
+    >
+      <h2
+        className="text-3xl font-bold mb-4"
+        tabIndex="0"
+        aria-label={section.title}
+      >
+        {section.title}
+      </h2>
+      <p
+        className="text-lg text-center"
+        tabIndex="0"
+        aria-label={`Contenido: ${section.content}`}
+      >
+        {section.content}
+      </p>
       <div
         className="bg-[#0070c2] rounded-full p-2 mt-6 cursor-pointer flex items-center justify-center shadow-lg w-10 h-10"
         onClick={() => navigate("/instructions")} // Navega de regreso a la lista de instrucciones
+        tabIndex="0"
+        aria-label="Minimizar y regresar a la lista de instrucciones"
+        role="button"
       >
-        <MinimizeButton className="w-6 h-6 text-white" />
+        <MinimizeButton className="w-6 h-6 text-white" aria-hidden="true" />
       </div>
     </div>
   );

@@ -13,6 +13,8 @@ function FormsComponent({ question, handleAnswer, handleNextQuestion }) {
               handleAnswer(key);
               handleNextQuestion();
             }}
+            tabIndex="0" // Permite la navegación con el teclado
+            aria-label={`Respuesta ${key.toUpperCase()}: ${value}`} // Proporciona una descripción para lectores de pantalla
           >
             {key.toUpperCase()}. {value}
           </button>

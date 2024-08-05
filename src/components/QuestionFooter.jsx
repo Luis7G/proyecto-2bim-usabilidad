@@ -1,9 +1,7 @@
-
-function QuestionFooter() {
+function QuestionFooter({ handlePrevious, handleNext }) {
   return (
-    <footer>
-      <button>Anterior</button>
-      <button>Siguiente</button>
+    <footer >
+     
     </footer>
   );
 }

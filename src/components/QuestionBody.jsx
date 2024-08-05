@@ -28,6 +28,7 @@ function QuestionBody() {
     if (selectedOption === currentQuestion.respuestaCorrecta) {
       setScore(score + currentQuestion.puntos);
     }
+    setShowResult(true);
   };
 
   const handleNextQuestion = () => {
@@ -40,14 +41,24 @@ function QuestionBody() {
 
   return (
     <div className="flex flex-col min-h-screen justify-between items-center">
-      <div className="flex-grow w-full max-w-3xl p-4">
-        <MultimediaComponent question={currentQuestion} />
-        <FormsComponent
-          question={currentQuestion}
-          handleAnswer={handleAnswer}
-          handleNextQuestion={handleNextQuestion}
-        />
+      <div className="flex-grow w-full max-w-3xl">
+        {showResult ? (
+          <ResultComponent
+            isCorrect={isCorrect}
+            justification={currentQuestion.justificación}
+            handleNextQuestion={handleNextQuestion}
+          />
+        ) : (
+          <>
+            <MultimediaComponent question={currentQuestion} />
+            <FormsComponent
+              question={currentQuestion}
+              handleAnswer={handleAnswer}
+            />
+          </>
+        )}
       </div>
+
       <div className="w-full max-w-3xl flex justify-around items-center bg-white p-4 shadow-md border-t border-gray-300">
         <span className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2">
           Pregunta: {currentQuestionIndex + 1}/{questionsArray.length}
