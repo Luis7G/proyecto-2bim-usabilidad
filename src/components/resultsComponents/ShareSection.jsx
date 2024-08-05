@@ -22,34 +22,24 @@ function ShareSection() {
       </span>
       <div className="flex space-x-2">
         <FaWhatsapp
-          className="text-white text-2xl"
-          tabIndex="0"
-          aria-label="Compartir en WhatsApp"
-          role="button"
+          className="text-white text-2xl cursor-pointer"
+          onClick={() => openLink("https://www.whatsapp.com")}
         />
         <FaFacebook
-          className="text-white text-2xl"
-          tabIndex="0"
-          aria-label="Compartir en Facebook"
-          role="button"
+          className="text-white text-2xl cursor-pointer"
+          onClick={() => openLink("https://www.facebook.com")}
         />
         <FaInstagram
-          className="text-white text-2xl"
-          tabIndex="0"
-          aria-label="Compartir en Instagram"
-          role="button"
+          className="text-white text-2xl cursor-pointer"
+          onClick={() => openLink("https://www.instagram.com")}
         />
         <FaTelegram
-          className="text-white text-2xl"
-          tabIndex="0"
-          aria-label="Compartir en Telegram"
-          role="button"
+          className="text-white text-2xl cursor-pointer"
+          onClick={() => openLink("https://www.telegram.org")}
         />
         <FaTiktok
-          className="text-white text-2xl"
-          tabIndex="0"
-          aria-label="Compartir en TikTok"
-          role="button"
+          className="text-white text-2xl cursor-pointer"
+          onClick={() => openLink("https://www.tiktok.com")}
         />
       </div>
     </div>
