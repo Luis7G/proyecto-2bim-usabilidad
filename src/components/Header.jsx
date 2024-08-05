@@ -9,11 +9,7 @@ function Header({ name }) {
       tabIndex="0"
       aria-label="Encabezado del sitio"
     >
-      <LineasMenu
-        tabIndex="0"
-        aria-label="Menú de navegación"
-        role="button"
-      />
+      <LineasMenu tabIndex="0" aria-label="Menú de navegación" role="button" />
       <div
         className="text-white text-[64px] font-extrabold font-['Roboto']"
         tabIndex="0"
@@ -23,6 +19,7 @@ function Header({ name }) {
       </div>
       <div className="flex items-center">
         <UserIcon
+          className="w-20 h-20"
           tabIndex="0"
           aria-label="Icono de usuario"
           role="button"
