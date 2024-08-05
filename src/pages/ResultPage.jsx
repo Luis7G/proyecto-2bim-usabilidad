@@ -10,10 +10,6 @@ import PropTypes from "prop-types";
 
 function ResultPage({ results, totalPoints, totalTime, totalCorrectAnswers }) {
   const navigate = useNavigate();
-
-function ResultPage() {
-  const navigate = useNavigate();
-
   function handleButtonClick() {
     navigate("/");
   }
@@ -34,11 +30,26 @@ function ResultPage() {
           tabIndex="0"
           aria-label="Sección de resultados detallados"
         >
-          <QuestionCard question={result.question} tabIndex="0" aria-label={`Pregunta: ${result.question}`} />
-          <AnswerCard answer={result.answer} tabIndex="0" aria-label={`Respuesta: ${result.answer}`} />
-          <FeedbackCard feedback={result.feedback} tabIndex="0" aria-label={`Retroalimentación: ${result.feedback}`} />
+          <QuestionCard
+            question={result.question}
+            tabIndex="0"
+            aria-label={`Pregunta: ${result.question}`}
+          />
+          <AnswerCard
+            answer={result.answer}
+            tabIndex="0"
+            aria-label={`Respuesta: ${result.answer}`}
+          />
+          <FeedbackCard
+            feedback={result.feedback}
+            tabIndex="0"
+            aria-label={`Retroalimentación: ${result.feedback}`}
+          />
         </div>
-        <ShareSection tabIndex="0" aria-label="Sección para compartir resultados" />
+        <ShareSection
+          tabIndex="0"
+          aria-label="Sección para compartir resultados"
+        />
         <button
           className="mt-4 bg-blue-500 text-white rounded-lg px-4 py-2 w-full"
           tabIndex="0"
