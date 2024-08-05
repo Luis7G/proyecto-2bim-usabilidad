@@ -24,13 +24,7 @@ function QuestionPage() {
         >
           <QuestionBody />
         </main>
-        <footer
-          className="flex justify-between items-center"
-          tabIndex="0"
-          aria-label="Pie de página de la pregunta"
-        >
-          <QuestionFooter />
-        </footer>
+
       </div>
     </div>
   );
