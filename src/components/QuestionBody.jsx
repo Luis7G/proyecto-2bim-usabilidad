@@ -47,6 +47,9 @@ function QuestionBody() {
 
   return (
     <div className="flex flex-col justify-between items-center">
+        <div className='flex-grow w-full max-w-3xl'>
+            
+        </div>
       <div className="flex-grow w-full max-w-3xl">
         {showResult ? (
           <ResultComponent
