@@ -4,6 +4,7 @@ import FormsComponent from "./Question/FormsComponent";
 import ResultComponent from "./Question/ResultComponent";
 import FinalResult from "./resultsComponents/FinalResult";
 import questionsData from "../data/questions.json";
+import CupIcon from "./icons/cup";
 
 function QuestionBody() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -112,8 +113,8 @@ function QuestionBody() {
         <span className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2">
           Tiempo: {String(Math.floor(timeElapsed / 60)).padStart(2, '0')}:{String(timeElapsed % 60).padStart(2, '0')}
         </span>
-        <span className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2">
-          Puntuación: {score}
+        <span className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2 flex items-center">
+          <CupIcon className="mr-2" /> {score}
         </span>
       </div>
     </div>
