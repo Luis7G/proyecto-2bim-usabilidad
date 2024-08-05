@@ -1,5 +1,6 @@
 import LineasMenu from "./icons/LineasMenu";
 import UserIcon from "./icons/userIcon";
+import PropTypes from "prop-types";
 
 function Header({ name }) {
   return (
@@ -14,5 +15,9 @@ function Header({ name }) {
     </div>
   );
 }
+
+Header.propTypes = {
+  name: PropTypes.string.isRequired,
+};
 
 export default Header;

@@ -1,31 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function FormsComponent(props) {
-  const { question, handleAnswer, handleNextQuestion } = props;
-  const [answer, setAnswer] = useState('');
-
-  const handleChange = (e) => {
-    setAnswer(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    handleAnswer(answer);
-    handleNextQuestion();
-    setAnswer('');
-  };
-
+function FormsComponent({ question, handleAnswer, handleNextQuestion }) {
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="answer">{question}</label>
-      <input
-        type="text"
-        id="answer"
-        value={answer}
-        onChange={handleChange}
-      />
-      <button type="submit">Submit</button>
-    </form>
+    <div>
+      {/* Opciones de Respuesta */}
+      <div className="mt-4 grid grid-cols-2 gap-4">
+        {Object.entries(question.respuestas).map(([key, value]) => (
+          <button
+            key={key}
+            className="bg-blue-500 text-white p-2 rounded-lg"
+            onClick={() => {
+              handleAnswer(key);
+              handleNextQuestion();
+            }}
+          >
+            {key.toUpperCase()}. {value}
+          </button>
+        ))}
+      </div>
+    </div>
   );
 }
+
 export default FormsComponent;

@@ -4,8 +4,14 @@ import QuestionCard from "../components/resultsComponents/QuestionCard";
 import AnswerCard from "../components/resultsComponents/AnswerCard";
 import FeedbackCard from "../components/resultsComponents/FeedbackCard";
 import ShareSection from "../components/resultsComponents/ShareSection";
+import { useNavigate } from "react-router-dom";
 
 function ResultPage() {
+  const Navigate = useNavigate();
+  function handleButtonClick() {
+    Navigate("/");
+  }
+
   // Estos datos deberían venir de tu estado o props
   const result = {
     points: 100,
@@ -20,7 +26,7 @@ function ResultPage() {
 
   return (
     <div className="min-h-screen bg-blue-100">
-      <InstructionsHeader />
+      <InstructionsHeader homeActivity={handleButtonClick} />
       <div className="container mx-auto p-4">
         <ResultHeader
           points={result.points}
