@@ -38,24 +38,14 @@ const Shortcuts = ({ handleButtonClick }) => {
   const shortcuts = [
     {
       id: 1,
-      title: "1. Imagen de Ayuda",
-      description: "Presiona 'H' para mostrar/ocultar la imagen de ayuda.",
-    },
-    {
-      id: 2,
-      title: "2. Audio de Pregunta",
+      title: "1. Audio de Pregunta",
       description: "Presiona 'A' para reproducir el audio de la pregunta.",
     },
     {
-      id: 3,
-      title: "3. Responder Pregunta",
+      id: 2,
+      title: "2. Responder Pregunta",
       description:
         "Presiona las teclas numéricas '1', '2', '3' o '4' para seleccionar la opción de respuesta correspondiente.",
-    },
-    {
-      id: 4,
-      title: "4. Regresar al Menú Principal",
-      description: "Presiona 'Esc' para regresar al menú principal.",
     },
   ];
 

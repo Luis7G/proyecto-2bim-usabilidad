@@ -69,6 +69,52 @@ function QuestionBody() {
     setQuizCompleted(false);
   };
 
+  // Función para reproducir audio
+  const readAloud = () => {
+    const synth = window.speechSynthesis;
+    const questionText = currentQuestion.pregunta;
+    const optionsText = Object.entries(currentQuestion.respuestas)
+      .map(([key, value]) => `${key.toUpperCase()}: ${value}`)
+      .join(", ");
+    const utterThis = new SpeechSynthesisUtterance(
+      `Pregunta: ${questionText}. Opciones: ${optionsText}`
+    );
+    synth.speak(utterThis);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (!showResult) {
+        switch (event.key) {
+          case "a":
+          case "A":
+            readAloud();
+            break;
+          case "1":
+            handleAnswer("a");
+            break;
+          case "2":
+            handleAnswer("b");
+            break;
+          case "3":
+            handleAnswer("c");
+            break;
+          case "4":
+            handleAnswer("d");
+            break;
+          default:
+            break;
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [showResult, currentQuestion, handleAnswer]);
+
   if (quizCompleted) {
     return (
       <FinalResult
@@ -95,7 +141,7 @@ function QuestionBody() {
           />
         ) : (
           <>
-            <MultimediaComponent question={currentQuestion} />
+            <MultimediaComponent question={currentQuestion} readAloud={readAloud} />
             <FormsComponent
               question={currentQuestion}
               handleAnswer={handleAnswer}

@@ -1,19 +1,6 @@
 import React from "react";
 
-function MultimediaComponent({ question }) {
-  // Función para leer la pregunta y las opciones en voz alta
-  const readAloud = () => {
-    const synth = window.speechSynthesis;
-    const questionText = question.pregunta;
-    const optionsText = Object.entries(question.respuestas)
-      .map(([key, value]) => `${key.toUpperCase()}: ${value}`)
-      .join(", ");
-    const utterThis = new SpeechSynthesisUtterance(
-      `Pregunta: ${questionText}. Opciones: ${optionsText}`
-    );
-    synth.speak(utterThis);
-  };
-
+function MultimediaComponent({ question, readAloud }) {
   // Transformar la URL del video para incrustar desde un enlace corto de YouTube
   const videoId = question.ayuda.video.split("/").pop(); // Extrae el ID del video del enlace corto
   const embedUrl = `https://www.youtube.com/embed/${videoId}`;

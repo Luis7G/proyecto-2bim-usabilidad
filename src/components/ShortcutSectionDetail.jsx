@@ -8,24 +8,14 @@ const ShortcutSectionDetail = () => {
   const shortcuts = [
     {
       id: 1,
-      title: "1. Imagen de Ayuda",
-      content: "Presiona 'H' para mostrar/ocultar la imagen de ayuda.",
-    },
-    {
-      id: 2,
-      title: "2. Audio de Pregunta",
+      title: "1. Audio de Pregunta",
       content: "Presiona 'A' para reproducir el audio de la pregunta.",
     },
     {
-      id: 3,
-      title: "3. Responder Pregunta",
+      id: 2,
+      title: "2. Responder Pregunta",
       content:
         "Presiona las teclas numéricas '1', '2', '3' o '4' para seleccionar la opción de respuesta correspondiente.",
-    },
-    {
-      id: 4,
-      title: "4. Regresar al Menú Principal",
-      content: "Presiona 'Esc' para regresar al menú principal.",
     },
   ];
 
