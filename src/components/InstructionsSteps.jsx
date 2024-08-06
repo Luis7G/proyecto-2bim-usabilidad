@@ -9,11 +9,11 @@ const InfoCard = ({ title, description, onMaximize }) => (
     aria-label={`Instrucción: ${title}`}
   >
     <div>
-      <h2 className="text-black font-bold" tabIndex="0" aria-label={title}>
+      <h2 className="text-black font-bold text-xl" tabIndex="0" aria-label={title}>
         {title}
       </h2>
       <p
-        className="text-black mt-1 text-sm text-justify"
+        className="text-black mt-1 text-justify text-base"
         tabIndex="0"
         aria-label={`Descripción: ${description}`}
       >
@@ -27,7 +27,7 @@ const InfoCard = ({ title, description, onMaximize }) => (
       aria-label="Maximizar sección"
       role="button"
     >
-      <MaximizeButton className="w-5 h-5 text-[#0070c2]" aria-hidden="true" />
+      <MaximizeButton className="w-24 h-auto text-[#0070c2]" aria-hidden="true" />
     </div>
   </div>
 );
@@ -40,7 +40,7 @@ const InstructionsSteps = () => {
       id: 1,
       title: "1. Tiempo y Score",
       description:
-        "Observa el tiempo restante y tu puntaje actual en la parte superior de la pantalla.",
+        "Observa el tiempo restante y tu puntaje actual en la parte inferior de la pantalla.",
     },
     {
       id: 2,
@@ -52,7 +52,7 @@ const InstructionsSteps = () => {
       id: 3,
       title: "3. Menú de Secciones",
       description:
-        "Abre el menú de secciones haciendo clic en el ícono de tres barras para acceder a diferentes partes del Quiz.",
+        "Abre el menú de secciones haciendo clic en el ícono de tres barras para acceder a otras secciones del quiz",
     },
     {
       id: 4,
@@ -78,7 +78,7 @@ const InstructionsSteps = () => {
         aria-label="Encabezado del manual de usuario"
       >
         <h1
-          className="text-white text-3xl font-bold flex justify-center"
+          className="text-white text-5xl font-bold flex justify-center"
           tabIndex="0"
           aria-label="Manual de usuario para la actividad"
         >
@@ -102,7 +102,7 @@ const InstructionsSteps = () => {
           ))}
         </div>
         <button
-          className="w-full bg-[#568CDD] text-white font-bold py-2 px-4 rounded mt-6"
+          className="w-full bg-[#568CDD] text-white font-bold py-2 px-4 rounded mt-6 text-4xl"
           onClick={handleContinue}
           tabIndex="0"
           aria-label="Continuar a la siguiente sección"

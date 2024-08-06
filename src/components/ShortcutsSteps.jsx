@@ -9,11 +9,11 @@ const ShortcutCard = ({ title, description, onMaximize }) => (
     aria-label={`Acceso directo: ${title}`}
   >
     <div>
-      <h2 className="text-black font-bold" tabIndex="0" aria-label={title}>
+      <h2 className="text-black font-bold text-xl" tabIndex="0" aria-label={title}>
         {title}
       </h2>
       <p
-        className="text-black mt-1 text-sm text-justify"
+        className="text-black mt-1 text-base text-justify"
         tabIndex="0"
         aria-label={`Descripción: ${description}`}
       >
@@ -27,7 +27,7 @@ const ShortcutCard = ({ title, description, onMaximize }) => (
       aria-label="Maximizar acceso directo"
       role="button"
     >
-      <MaximizeButton className="w-5 h-5 text-[#0070c2]" aria-hidden="true" />
+      <MaximizeButton className="w-24 h-auto text-[#0070c2]" aria-hidden="true" />
     </div>
   </div>
 );
@@ -38,24 +38,14 @@ const Shortcuts = ({ handleButtonClick }) => {
   const shortcuts = [
     {
       id: 1,
-      title: "1. Imagen de Ayuda",
-      description: "Presiona 'H' para mostrar/ocultar la imagen de ayuda.",
-    },
-    {
-      id: 2,
-      title: "2. Audio de Pregunta",
+      title: "1. Audio de Pregunta",
       description: "Presiona 'A' para reproducir el audio de la pregunta.",
     },
     {
-      id: 3,
-      title: "3. Responder Pregunta",
+      id: 2,
+      title: "2. Responder Pregunta",
       description:
         "Presiona las teclas numéricas '1', '2', '3' o '4' para seleccionar la opción de respuesta correspondiente.",
-    },
-    {
-      id: 4,
-      title: "4. Regresar al Menú Principal",
-      description: "Presiona 'Esc' para regresar al menú principal.",
     },
   ];
 
@@ -71,7 +61,7 @@ const Shortcuts = ({ handleButtonClick }) => {
         aria-label="Encabezado de accesos directos"
       >
         <h1
-          className="text-white text-3xl font-bold flex justify-center"
+          className="text-white text-5xl font-bold flex justify-center"
           tabIndex="0"
           aria-label="Accesos Directos"
         >
@@ -96,7 +86,7 @@ const Shortcuts = ({ handleButtonClick }) => {
         </div>
         <button
           onClick={handleButtonClick}
-          className="w-full bg-[#568CDD] text-white font-bold py-2 px-4 rounded mt-6"
+          className="w-full bg-[#568CDD] text-white font-bold py-2 px-4 rounded mt-6 text-4xl"
           tabIndex="0"
           aria-label="Continuar a la siguiente sección"
         >

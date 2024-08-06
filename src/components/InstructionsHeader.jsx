@@ -5,7 +5,7 @@ function InstructionsHeader({ homeActivity }) {
   return (
     <header className="w-full bg-[#0070c2] flex items-center justify-between p-3">
       <h1
-        className="text-white text-[40px] font-extrabold font-['Roboto'] mx-auto"
+        className="text-white text-6xl font-extrabold font-['Roboto'] mx-auto"
         tabIndex="0"
         aria-label="Sección de Ciencias Naturales"
       >

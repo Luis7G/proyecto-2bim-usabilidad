@@ -69,6 +69,52 @@ function QuestionBody() {
     setQuizCompleted(false);
   };
 
+  // Función para reproducir audio
+  const readAloud = () => {
+    const synth = window.speechSynthesis;
+    const questionText = currentQuestion.pregunta;
+    const optionsText = Object.entries(currentQuestion.respuestas)
+      .map(([key, value]) => `${key.toUpperCase()}: ${value}`)
+      .join(", ");
+    const utterThis = new SpeechSynthesisUtterance(
+      `Pregunta: ${questionText}. Opciones: ${optionsText}`
+    );
+    synth.speak(utterThis);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (!showResult) {
+        switch (event.key) {
+          case "a":
+          case "A":
+            readAloud();
+            break;
+          case "1":
+            handleAnswer("a");
+            break;
+          case "2":
+            handleAnswer("b");
+            break;
+          case "3":
+            handleAnswer("c");
+            break;
+          case "4":
+            handleAnswer("d");
+            break;
+          default:
+            break;
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [showResult, currentQuestion, handleAnswer]);
+
   if (quizCompleted) {
     return (
       <FinalResult
@@ -85,10 +131,8 @@ function QuestionBody() {
 
   return (
     <div className="flex flex-col justify-between items-center">
-        <div className='flex-grow w-full max-w-3xl'>
-            
-        </div>
-      <div className="flex-grow w-full max-w-3xl">
+      <div className="flex-grow w-full max-w-3xl"></div>
+      <div className="flex-grow w-full max-w-6xl">
         {showResult ? (
           <ResultComponent
             isCorrect={isCorrect}
@@ -97,7 +141,7 @@ function QuestionBody() {
           />
         ) : (
           <>
-            <MultimediaComponent question={currentQuestion} />
+            <MultimediaComponent question={currentQuestion} readAloud={readAloud} />
             <FormsComponent
               question={currentQuestion}
               handleAnswer={handleAnswer}
@@ -106,26 +150,36 @@ function QuestionBody() {
         )}
       </div>
 
-      <div 
-      tabIndex={0}
-        aria-label="Sección de preguntas"
-      className="w-full max-w-3xl flex justify-around items-center bg-white p-4 shadow-md border-t border-gray-300">
-        <span 
+      <div
         tabIndex={0}
-            aria-label={`Pregunta: ${currentQuestionIndex + 1} de ${questionsArray.length}`}
-        className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2">
+        aria-label="Sección de preguntas"
+        className="w-full max-w-3xl flex justify-around items-center bg-white p-4 shadow-md border-t border-gray-300"
+      >
+        <span
+          tabIndex={0}
+          aria-label={`Pregunta: ${currentQuestionIndex + 1} de ${
+            questionsArray.length
+          }`}
+          className="text-2xl font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2"
+        >
           Pregunta: {currentQuestionIndex + 1}/{questionsArray.length}
         </span>
-        <span 
-        tabIndex={0}
-            aria-label={`Tiempo: ${String(Math.floor(timeElapsed / 60)).padStart(2, '0')}:${String(timeElapsed % 60).padStart(2, '0')}`}
-        className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2">
-          Tiempo: {String(Math.floor(timeElapsed / 60)).padStart(2, '0')}:{String(timeElapsed % 60).padStart(2, '0')}
+        <span
+          tabIndex={0}
+          aria-label={`Tiempo: ${String(Math.floor(timeElapsed / 60)).padStart(
+            2,
+            "0"
+          )}:${String(timeElapsed % 60).padStart(2, "0")}`}
+          className="text-2xl font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2"
+        >
+          Tiempo: {String(Math.floor(timeElapsed / 60)).padStart(2, "0")}:
+          {String(timeElapsed % 60).padStart(2, "0")}
         </span>
-        <span 
-        tabIndex={0}
-            aria-label={`Puntuación: ${score}`}
-        className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2">
+        <span
+          tabIndex={0}
+          aria-label={`Puntuación: ${score}`}
+          className="text-2xl font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2"
+        >
           Puntuación: {score}
         </span>
       </div>

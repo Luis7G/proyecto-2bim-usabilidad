@@ -17,28 +17,32 @@ function ShareSection() {
       tabIndex="0"
       aria-label="Sección para compartir en redes sociales"
     >
-      <span className="text-white font-bold" tabIndex="0" aria-label="Compartir con un amigo">
+      <span
+        className="text-white font-bold text-2xl"
+        tabIndex="0"
+        aria-label="Compartir con un amigo"
+      >
         Compartir con un amigo:
       </span>
       <div className="flex space-x-2">
         <FaWhatsapp
-          className="text-white text-2xl cursor-pointer"
+          className="text-white text-4xl cursor-pointer"
           onClick={() => openLink("https://www.whatsapp.com")}
         />
         <FaFacebook
-          className="text-white text-2xl cursor-pointer"
+          className="text-white text-4xl cursor-pointer"
           onClick={() => openLink("https://www.facebook.com")}
         />
         <FaInstagram
-          className="text-white text-2xl cursor-pointer"
+          className="text-white text-4xl cursor-pointer"
           onClick={() => openLink("https://www.instagram.com")}
         />
         <FaTelegram
-          className="text-white text-2xl cursor-pointer"
+          className="text-white text-4xl cursor-pointer"
           onClick={() => openLink("https://www.telegram.org")}
         />
         <FaTiktok
-          className="text-white text-2xl cursor-pointer"
+          className="text-white text-4xl cursor-pointer"
           onClick={() => openLink("https://www.tiktok.com")}
         />
       </div>
