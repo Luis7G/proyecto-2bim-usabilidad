@@ -6,10 +6,10 @@ import background from "../assets/images/g-home.png";
 import { useNavigate } from "react-router-dom";
 
 function HomePage() {
-    const navigate = useNavigate();
-    const handleButtonClick = () => {
-        navigate("/game");
-    };
+  const navigate = useNavigate();
+  const handleButtonClick = () => {
+    navigate("/instructions");
+  };
 
   return (
     <div className="relative flex flex-col min-h-screen">
@@ -18,9 +18,9 @@ function HomePage() {
         style={{ backgroundImage: `url(${background})` }}
       ></div>
       <div className="relative z-10 flex flex-col min-h-screen">
-        <Header name="EDUCAPLAY"/>
+        <Header name="EDUCAPLAY" />
         <div className="flex-grow flex justify-center">
-          <HomeBody handleButtonClick={handleButtonClick}/>
+          <HomeBody handleButtonClick={handleButtonClick} />
         </div>
         <Footer />
       </div>

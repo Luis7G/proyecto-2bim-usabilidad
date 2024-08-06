@@ -21,14 +21,14 @@ function FooterPuntuation() {
           <div 
           tabIndex={0}
             aria-label="Resultados de la tabla de puntuación"
-          className="flex flex-col items-center p-4 m">
+          className="flex flex-col items-center p-4">
           {
             Data.ranking.map((score, index) => {
               return (
                 <ScoreComponent 
                 tabIndex={0}
                 aria-label={`Usuario: ${score.name} Puntaje: ${score.score}`}
-                key={index} user={score.name} score={score.score} />
+                key={index} user={score.name} score={score.score}/>
               );
             })
             

@@ -19,8 +19,8 @@ function ScoreComponent({ user, score }) {
             tabIndex="0"
             aria-label={`Usuario: ${user}`}
           >
-            <div className="w-60 h-12 bg-white rounded-3xl border-4 border-[#0070c2]">
-              <div className="w-48 text-center">
+            <div className="w-60 h-auto bg-white rounded-3xl border-4 border-[#0070c2]">
+              <div className="w-50 text-center">
                 <span className="text-black text-xl font-extrabold font-['Roboto']">
                   Usuario:{" "}
                 </span>
@@ -35,8 +35,8 @@ function ScoreComponent({ user, score }) {
             tabIndex="0"
             aria-label={`Puntaje: ${score}`}
           >
-            <div className="w-60 h-10 bg-white rounded-3xl border-4 border-[#0070c2]">
-              <div className="w-36 text-center">
+            <div className="w-60 h-auto bg-white rounded-3xl border-4 border-[#0070c2]">
+              <div className="w-50 text-center">
                 <span className="text-black text-xl font-extrabold font-['Roboto']">
                   Puntaje:{" "}
                 </span>
