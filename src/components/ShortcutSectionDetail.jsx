@@ -42,27 +42,27 @@ const ShortcutSectionDetail = () => {
       aria-label={`Detalle del acceso directo: ${shortcut.title}`}
     >
       <h2
-        className="text-3xl font-bold mb-4"
+        className="text-7xl font-bold mb-4"
         tabIndex="0"
         aria-label={shortcut.title}
       >
         {shortcut.title}
       </h2>
       <p
-        className="text-lg text-center"
+        className="text-6xl text-center"
         tabIndex="0"
         aria-label={`Contenido: ${shortcut.content}`}
       >
         {shortcut.content}
       </p>
       <div
-        className="bg-[#0070c2] rounded-full p-2 mt-6 cursor-pointer flex items-center justify-center shadow-lg w-10 h-10"
+        className="bg-[#0070c2] rounded-full p-2 mt-6 cursor-pointer flex items-center justify-center shadow-lg w-20 h-20"
         onClick={() => navigate("/shortcuts")} // Navega de regreso a la lista de shortcuts
         tabIndex="0"
         aria-label="Minimizar y regresar a la lista de accesos directos"
         role="button"
       >
-        <MinimizeButton className="w-6 h-6 text-white" aria-hidden="true" />
+        <MinimizeButton className="w-24 h-auto text-white" aria-hidden="true" />
       </div>
     </div>
   );

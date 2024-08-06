@@ -21,7 +21,7 @@ function MultimediaComponent({ question }) {
   return (
     <div className="flex justify-between items-center">
       <iframe
-        className="w-1/3 h-32"
+        className="w-1/3 h-96"
         src={embedUrl}
         title="Video de ayuda"
         allowFullScreen
@@ -29,15 +29,24 @@ function MultimediaComponent({ question }) {
         aria-label="Video de ayuda"
       ></iframe>
       <div className="flex-1 text-center">
-        <h2 className="text-xl font-bold mb-2" tabIndex="0" aria-label={`Pregunta: ${question.pregunta}`}>
+        <h2
+          className="text-3xl font-bold mb-2"
+          tabIndex="0"
+          aria-label={`Pregunta: ${question.pregunta}`}
+        >
           {question.pregunta}
         </h2>
-        <button onClick={readAloud} aria-label="Leer pregunta y opciones en voz alta" tabIndex="0">
-          🎤
+        <button
+          onClick={readAloud}
+          aria-label="Leer pregunta y opciones en voz alta"
+          tabIndex="0"
+          className="text-8xl"
+        >
+          ▶️
         </button>
       </div>
       <img
-        className="w-1/3 h-32"
+        className="w-1/3 h-auto"
         src={question.ayuda.imagen}
         alt="Imagen de ayuda"
         tabIndex="0"

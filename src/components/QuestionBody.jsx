@@ -85,10 +85,8 @@ function QuestionBody() {
 
   return (
     <div className="flex flex-col justify-between items-center">
-        <div className='flex-grow w-full max-w-3xl'>
-            
-        </div>
-      <div className="flex-grow w-full max-w-3xl">
+      <div className="flex-grow w-full max-w-3xl"></div>
+      <div className="flex-grow w-full max-w-6xl">
         {showResult ? (
           <ResultComponent
             isCorrect={isCorrect}
@@ -106,26 +104,36 @@ function QuestionBody() {
         )}
       </div>
 
-      <div 
-      tabIndex={0}
-        aria-label="Sección de preguntas"
-      className="w-full max-w-3xl flex justify-around items-center bg-white p-4 shadow-md border-t border-gray-300">
-        <span 
+      <div
         tabIndex={0}
-            aria-label={`Pregunta: ${currentQuestionIndex + 1} de ${questionsArray.length}`}
-        className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2">
+        aria-label="Sección de preguntas"
+        className="w-full max-w-3xl flex justify-around items-center bg-white p-4 shadow-md border-t border-gray-300"
+      >
+        <span
+          tabIndex={0}
+          aria-label={`Pregunta: ${currentQuestionIndex + 1} de ${
+            questionsArray.length
+          }`}
+          className="text-2xl font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2"
+        >
           Pregunta: {currentQuestionIndex + 1}/{questionsArray.length}
         </span>
-        <span 
-        tabIndex={0}
-            aria-label={`Tiempo: ${String(Math.floor(timeElapsed / 60)).padStart(2, '0')}:${String(timeElapsed % 60).padStart(2, '0')}`}
-        className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2">
-          Tiempo: {String(Math.floor(timeElapsed / 60)).padStart(2, '0')}:{String(timeElapsed % 60).padStart(2, '0')}
+        <span
+          tabIndex={0}
+          aria-label={`Tiempo: ${String(Math.floor(timeElapsed / 60)).padStart(
+            2,
+            "0"
+          )}:${String(timeElapsed % 60).padStart(2, "0")}`}
+          className="text-2xl font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2"
+        >
+          Tiempo: {String(Math.floor(timeElapsed / 60)).padStart(2, "0")}:
+          {String(timeElapsed % 60).padStart(2, "0")}
         </span>
-        <span 
-        tabIndex={0}
-            aria-label={`Puntuación: ${score}`}
-        className="text-lg font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2">
+        <span
+          tabIndex={0}
+          aria-label={`Puntuación: ${score}`}
+          className="text-2xl font-semibold border-2 border-blue-500 bg-white rounded-full px-4 py-2"
+        >
           Puntuación: {score}
         </span>
       </div>

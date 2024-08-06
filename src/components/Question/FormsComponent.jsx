@@ -8,7 +8,7 @@ function FormsComponent({ question, handleAnswer, handleNextQuestion }) {
         {Object.entries(question.respuestas).map(([key, value]) => (
           <button
             key={key}
-            className="bg-blue-500 text-white p-2 rounded-lg"
+            className="bg-blue-500 text-white p-2 rounded-lg text-2xl"
             onClick={() => {
               handleAnswer(key);
               handleNextQuestion();

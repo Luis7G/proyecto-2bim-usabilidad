@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import HomeBody from "../components/homeBody";
-import Footer from "../components/FooterPuntuation";
+import Footer from "../components/FooterDescription";
 import background from "../assets/images/g-home.png";
 import { useNavigate } from "react-router-dom";
 

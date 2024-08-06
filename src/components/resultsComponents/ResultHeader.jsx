@@ -8,13 +8,13 @@ function ResultHeader({ points, time, correctAnswers }) {
       aria-label="Encabezado de resultados"
     >
       <span
-        className="text-2xl font-bold text-white"
+        className="text-3xl font-bold text-white"
         tabIndex="0"
         aria-label="Tu Resultado"
       >
         Tu Resultado:
       </span>
-      <div className="flex space-x-2">
+      <div className="flex space-x-2 text-2xl">
         <span
           className="bg-teal-600 text-white rounded-full px-3 py-1"
           tabIndex="0"
