@@ -9,13 +9,19 @@ const ShortcutSectionDetail = () => {
     {
       id: 1,
       title: "1. Audio de Pregunta",
-      content: "Presiona 'A' para reproducir el audio de la pregunta.",
+      content: "Presiona la tecla 'A' para reproducir el audio de la pregunta.",
     },
     {
       id: 2,
       title: "2. Responder Pregunta",
       content:
         "Presiona las teclas numéricas '1', '2', '3' o '4' para seleccionar la opción de respuesta correspondiente.",
+    },
+    {
+      id: 3,
+      title: "3. Navegar entre Respuestas",
+      content:
+        "Usa las flechas del teclado 'Arriba', 'Abajo', 'Derecha' e 'Izquierda' para moverte entre las opciones de respuesta.",
     },
   ];
 
@@ -24,6 +30,12 @@ const ShortcutSectionDetail = () => {
   if (!shortcut) {
     return <div>No se encontró el acceso directo.</div>;
   }
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      navigate("/shortcuts"); // Ejecuta la acción de minimizar al presionar Enter
+    }
+  };
 
   return (
     <div
@@ -48,6 +60,7 @@ const ShortcutSectionDetail = () => {
       <div
         className="bg-[#0070c2] rounded-full p-2 mt-6 cursor-pointer flex items-center justify-center shadow-lg w-20 h-20"
         onClick={() => navigate("/shortcuts")} // Navega de regreso a la lista de shortcuts
+        onKeyDown={handleKeyDown} // Maneja la tecla Enter
         tabIndex="0"
         aria-label="Minimizar y regresar a la lista de accesos directos"
         role="button"

@@ -17,7 +17,7 @@ function InstructionsHeader({ homeActivity }) {
           <button
             onClick={homeActivity}
             className="bg-white rounded-full p-2 flex items-center justify-center"
-            aria-label="Ir al inicio"
+            aria-label="Botón para ir al inicio"
             tabIndex="0"
           >
             <HomeIcon className="text-[#0070c2] w-12 h-12" aria-hidden="true" />

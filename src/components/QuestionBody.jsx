@@ -4,6 +4,7 @@ import FormsComponent from "./Question/FormsComponent";
 import ResultComponent from "./Question/ResultComponent";
 import FinalResult from "./resultsComponents/FinalResult";
 import questionsData from "../data/questions.json";
+import retrocesoIcon from "../assets/images/retroceso.png";
 
 function QuestionBody() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -14,6 +15,22 @@ function QuestionBody() {
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [results, setResults] = useState([]);
   const [finalTime, setFinalTime] = useState(null);
+  const [previousScore, setPreviousScore] = useState(0);
+  const [retractMode, setRetractMode] = useState(false);
+  const [hasAnsweredCorrectly, setHasAnsweredCorrectly] = useState(false);
+
+  const imageDescriptions = [
+    "Descripción de la imagen: La imagen muestra un diagrama de fotosíntesis. La planta absorbe energía del sol, dióxido de carbono del aire y agua del suelo. Produce glucosa para su crecimiento y libera oxígeno al aire.",
+    "Descripción de la imagen: La imagen muestra un dibujo simple de un corazón humano en tonos rojos y rosados, destacando sus arterias principales.",
+    "Descripción de la imagen: La imagen muestra un microscopio con etiquetas en sus partes principales: oculares, perilla de enfoque, iluminación superior e inferior, dioptrías, cabezal, platina, pinzas y alimentación.",
+    "Descripción de la imagen: La imagen muestra un espejo ovalado con un marco dorado ornamentado con detalles florales.",
+    "Descripción de la imagen: La imagen muestra un diagrama de una planta de energía, con una chimenea emitiendo humo, un generador conectado a una turbina, y una torre de enfriamiento que libera vapor.",
+    "Descripción de la imagen: La imagen muestra una bombilla a la izquierda, de la cual salen dos representaciones de la luz: una onda roja con la etiqueta Luz como onda electromagnética (Huygens) y una flecha amarilla recta con la etiqueta Luz como flujo de partículas (Newton)",
+    "Descripción de la imagen: La imagen muestra al sol a la izquierda emitiendo rayos hacia la Tierra, que se encuentra a la derecha. Los rayos son ondulados y se dirigen hacia el planeta, representando la luz solar que alcanza la superficie terrestre. El fondo es azul oscuro con estrellas dispersas.",
+    "Descripción de la imagen: La imagen ilustra un árbol con sus partes y los elementos que necesita para realizar la fotosíntesis. En la parte superior hay un sol que representa la luz solar. Las hojas del árbol absorben dióxido de carbono (CO2) y emiten oxígeno (O2). Las raíces absorben agua (H2O) y minerales del suelo, mientras que el tronco y las ramas transportan la glucosa producida por la fotosíntesis.",
+    "Descripción de la imagen: La imagen muestra un hígado humano el cuál tiene una forma curva característica y un color rojizo.",
+    "Descripción de la imagen: La imagen muestra un dibujo simple de un par de pulmones humanos adorable.",
+  ];
 
   const questionsArray = Object.entries(questionsData.preguntas).map(
     ([key, value]) => ({
@@ -33,10 +50,25 @@ function QuestionBody() {
 
   const handleAnswer = (selectedOption) => {
     const correct = selectedOption === currentQuestion.respuestaCorrecta;
-    setIsCorrect(correct);
-    if (correct) {
-      setScore(score + currentQuestion.puntos);
+
+    if (retractMode) {
+      setRetractMode(false);
+      if (correct && !hasAnsweredCorrectly) {
+        setScore(previousScore + currentQuestion.puntos);
+        setHasAnsweredCorrectly(true);
+      } else {
+        setScore(previousScore);
+      }
+    } else {
+      setPreviousScore(score);
+      if (correct && !hasAnsweredCorrectly) {
+        setScore(score + currentQuestion.puntos);
+        setHasAnsweredCorrectly(true);
+      }
     }
+
+    setIsCorrect(correct);
+
     setResults((prevResults) => [
       ...prevResults,
       {
@@ -45,19 +77,28 @@ function QuestionBody() {
         correctAnswer:
           currentQuestion.respuestas[currentQuestion.respuestaCorrecta],
         justification: currentQuestion.justificación,
+        imageSrc: currentQuestion.ayuda.imagen,
+        imageAlt: imageDescriptions[currentQuestionIndex],
       },
     ]);
+
     setShowResult(true);
   };
 
   const handleNextQuestion = () => {
     setShowResult(false);
+    setHasAnsweredCorrectly(false); // Resetear el estado para la siguiente pregunta
     if (currentQuestionIndex < questionsArray.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      setFinalTime(timeElapsed); // Guardar el tiempo final
+      setFinalTime(timeElapsed);
       setQuizCompleted(true);
     }
+  };
+
+  const handleRetract = () => {
+    setShowResult(false);
+    setRetractMode(true);
   };
 
   const handleRestartQuiz = () => {
@@ -66,54 +107,11 @@ function QuestionBody() {
     setTimeElapsed(0);
     setResults([]);
     setFinalTime(null);
-    setQuizCompleted(false);
+    setRetractMode(false);
+    setPreviousScore(0);
+    setHasAnsweredCorrectly(false);
+    setQuizCompleted(false); // Asegura que el quiz no esté completado al reiniciar
   };
-
-  // Función para reproducir audio
-  const readAloud = () => {
-    const synth = window.speechSynthesis;
-    const questionText = currentQuestion.pregunta;
-    const optionsText = Object.entries(currentQuestion.respuestas)
-      .map(([key, value]) => `${key.toUpperCase()}: ${value}`)
-      .join(", ");
-    const utterThis = new SpeechSynthesisUtterance(
-      `Pregunta: ${questionText}. Opciones: ${optionsText}`
-    );
-    synth.speak(utterThis);
-  };
-
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (!showResult) {
-        switch (event.key) {
-          case "a":
-          case "A":
-            readAloud();
-            break;
-          case "1":
-            handleAnswer("a");
-            break;
-          case "2":
-            handleAnswer("b");
-            break;
-          case "3":
-            handleAnswer("c");
-            break;
-          case "4":
-            handleAnswer("d");
-            break;
-          default:
-            break;
-        }
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [showResult, currentQuestion, handleAnswer]);
 
   if (quizCompleted) {
     return (
@@ -137,11 +135,15 @@ function QuestionBody() {
           <ResultComponent
             isCorrect={isCorrect}
             justification={currentQuestion.justificación}
+            imageSrc={currentQuestion.ayuda.imagen}
+            imageAlt={imageDescriptions[currentQuestionIndex]}
             handleNextQuestion={handleNextQuestion}
+            handleRetract={handleRetract}
+            retrocesoIcon={retrocesoIcon}
           />
         ) : (
           <>
-            <MultimediaComponent question={currentQuestion} readAloud={readAloud} />
+            <MultimediaComponent question={currentQuestion} />
             <FormsComponent
               question={currentQuestion}
               handleAnswer={handleAnswer}

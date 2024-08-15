@@ -22,34 +22,32 @@ function CreditsPage() {
           <h2 id="credits-title" className="sr-only">
             Detalles de Créditos
           </h2>
-          <section aria-labelledby="developers-title" className="mb-8">
-            <h3 id="developers-title" className="font-bold mb-4">
+          <section aria-labelledby="developers-title">
+            <h3 id="developers-title" className="font-bold mb-4" tabIndex="0">
               Desarrolladores:
             </h3>
-            <ul className="list-disc list-inside">
+            <ul className="list-disc list-inside" tabIndex="0">
               <li>Erik Chalacamá (Desarrollador principal)</li>
               <li>Ariel Suntasig (Desarrollador front-end)</li>
               <li>Joel Guingla (Desarrollador front-end)</li>
             </ul>
           </section>
-          <section aria-labelledby="designers-title" className="mb-8">
-            <h3 id="designers-title" className="font-bold mb-4">
+          <section aria-labelledby="designers-title">
+            <h3 id="designers-title" className="font-bold mb-4" tabIndex="0">
               Diseñadores:
             </h3>
-            <ul className="list-disc list-inside">
+            <ul className="list-disc list-inside" tabIndex="0">
               <li>Santiago Salazar (Diseñador gráfico y de interfaz)</li>
             </ul>
           </section>
           <section aria-labelledby="sources-title">
-            <h3 id="sources-title" className="font-bold mb-4">
+            <h3 id="sources-title" className="font-bold mb-4" tabIndex="0">
               Fuentes de información:
             </h3>
-            <ul className="list-disc list-inside">
-              <li>
-                "Enciclopedia de Ciencias Naturales" - Editorial Santillana
-              </li>
-              <li>"Explorando la Naturaleza" - Smithsonian Institution</li>
-              <li>"Naturaleza Interactiva" - National Geographic</li>
+            <ul className="list-disc list-inside" tabIndex="0">
+              <li>Enciclopedia de Ciencias Naturales - Editorial Santillana</li>
+              <li>Explorando la Naturaleza - Smithsonian Institution</li>
+              <li>Naturaleza Interactiva - National Geographic</li>
             </ul>
           </section>
         </div>

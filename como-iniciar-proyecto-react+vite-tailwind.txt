@@ -3,7 +3,7 @@ npm create vite@latest
 npm install
 npm run dev
 
-eliminar index.css
+eliminar main.css
 
 Tailwind:
 npm install -D tailwindcss postcss autoprefixer

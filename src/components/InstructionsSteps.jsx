@@ -2,35 +2,51 @@ import { useNavigate } from "react-router-dom";
 import MaximizeButton from "./icons/maximizeButton";
 import PropTypes from "prop-types";
 
-const InfoCard = ({ title, description, onMaximize }) => (
-  <div
-    className="bg-white rounded-lg p-4 shadow-md mb-4 flex justify-between items-start"
-    tabIndex="0"
-    aria-label={`Instrucción: ${title}`}
-  >
-    <div>
-      <h2 className="text-black font-bold text-xl" tabIndex="0" aria-label={title}>
-        {title}
-      </h2>
-      <p
-        className="text-black mt-1 text-justify text-base"
-        tabIndex="0"
-        aria-label={`Descripción: ${description}`}
-      >
-        {description}
-      </p>
-    </div>
+const InfoCard = ({ title, description, onMaximize }) => {
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      onMaximize(); // Ejecuta la acción de maximizar al presionar Enter
+    }
+  };
+
+  return (
     <div
-      className="bg-white rounded-full p-1 flex items-center justify-center shadow-lg w-8 h-8 ml-2 cursor-pointer"
-      onClick={onMaximize}
+      className="bg-white rounded-lg p-4 shadow-md mb-4 flex justify-between items-start"
       tabIndex="0"
-      aria-label="Maximizar sección"
-      role="button"
+      aria-label={`Instrucción: ${title}`}
     >
-      <MaximizeButton className="w-24 h-auto text-[#0070c2]" aria-hidden="true" />
+      <div>
+        <h2
+          className="text-black font-bold text-xl"
+          tabIndex="0"
+          aria-label={title}
+        >
+          {title}
+        </h2>
+        <p
+          className="text-black mt-1 text-justify text-base"
+          tabIndex="0"
+          aria-label={`Descripción: ${description}`}
+        >
+          {description}
+        </p>
+      </div>
+      <div
+        className="bg-white rounded-full p-1 flex items-center justify-center shadow-lg w-8 h-8 ml-2 cursor-pointer"
+        onClick={onMaximize}
+        onKeyDown={handleKeyDown} // Maneja la tecla Enter
+        tabIndex="0"
+        aria-label="Maximizar sección"
+        role="button"
+      >
+        <MaximizeButton
+          className="w-24 h-auto text-[#0070c2]"
+          aria-hidden="true"
+        />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const InstructionsSteps = () => {
   const navigate = useNavigate();
