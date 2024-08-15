@@ -38,6 +38,12 @@ const SectionDetail = () => {
     return <div>No se encontró la sección.</div>;
   }
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      navigate("/instructions");
+    }
+  };
+
   return (
     <div
       className="w-full h-screen flex flex-col items-center justify-center bg-white p-4"
@@ -61,6 +67,7 @@ const SectionDetail = () => {
       <div
         className="bg-[#0070c2] rounded-full p-2 mt-6 cursor-pointer flex items-center justify-center shadow-lg w-20 h-20"
         onClick={() => navigate("/instructions")} // Navega de regreso a la lista de instrucciones
+        onKeyDown={handleKeyDown} // Maneja la tecla Enter
         tabIndex="0"
         aria-label="Minimizar y regresar a la lista de instrucciones"
         role="button"

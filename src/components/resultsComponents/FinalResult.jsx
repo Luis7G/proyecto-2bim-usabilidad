@@ -21,28 +21,36 @@ function FinalResult({
         correctAnswers={totalCorrectAnswers}
       />
       <div className="overflow-auto max-h-[440px]">
-        {results.map((result, index) => (
-          <div
-            key={index}
-            className={`text-2xl p-4 rounded-lg mb-4 shadow-md ${
-              result.chosenAnswer === result.correctAnswer
-                ? "bg-green-500"
-                : "bg-red-500"
-            }`}
-          >
-            <QuestionCard question={result.question} />
-            <AnswerCard
-              answer={result.chosenAnswer}
-              title="Respuesta Elegida"
-            />
-            <FeedbackCard feedback={result.justification} />
-          </div>
-        ))}
+        {results.map((result, index) => {
+          // Verificamos si la respuesta final seleccionada es correcta
+          const isCorrectFinal = result.chosenAnswer === result.correctAnswer;
+
+          return (
+            <div
+              key={index}
+              className={`text-2xl p-4 rounded-lg mb-4 shadow-md ${
+                isCorrectFinal ? "bg-green-500" : "bg-red-500"
+              }`}
+              tabIndex="0"
+              aria-label={`Pregunta ${index + 1}: La respuesta fue ${
+                isCorrectFinal ? "correcta" : "incorrecta"
+              }`}
+            >
+              <QuestionCard question={result.question} />
+              <AnswerCard
+                answer={result.chosenAnswer}
+                title="Respuesta Elegida"
+              />
+              <FeedbackCard feedback={result.justification} />
+            </div>
+          );
+        })}
       </div>
       <div className="w-full">
         <button
           className="bg-blue-500 text-white font-bold py-2 px-4 rounded w-full mb-4 mt-4 text-3xl"
           onClick={onRestartQuiz}
+          aria-label="Botón para Reiniciar Quiz"
         >
           Reiniciar Quiz
         </button>

@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 const SvgComponent = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -12,5 +12,5 @@ const SvgComponent = (props) => (
       d="M0 60.5h90v-10H0v10Zm0-25h90v-10H0v10Zm0-35v10h90V.5H0Z"
     />
   </svg>
-)
-export default SvgComponent
+);
+export default SvgComponent;

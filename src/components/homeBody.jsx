@@ -8,7 +8,7 @@ function HomeBody({ handleButtonClick }) {
         id="playButton"
         onClick={handleButtonClick}
         className="flex flex-col justify-center items-center h-full transform transition-transform duration-200 hover:scale-105"
-        aria-label="Iniciar el juego"
+        aria-label="Botón para iniciar el juego"
         tabIndex="0"
       >
         <PlayButtonIcon />

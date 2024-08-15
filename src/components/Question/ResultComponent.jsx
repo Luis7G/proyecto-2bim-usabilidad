@@ -1,26 +1,13 @@
-import React, { useEffect } from "react";
-
-function ResultComponent({ isCorrect, justification, handleNextQuestion }) {
-  useEffect(() => {
-    const readJustificationAloud = () => {
-      const synth = window.speechSynthesis;
-      const utterThis = new SpeechSynthesisUtterance(justification);
-      synth.speak(utterThis);
-    };
-
-    const handleKeyDown = (event) => {
-      if (event.key === "a" || event.key === "A") {
-        readJustificationAloud();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [justification]);
-
+import React from "react";
+import retrocesoIcon from "../../assets/images/retroceso.png";
+function ResultComponent({
+  isCorrect,
+  justification,
+  handleNextQuestion,
+  handleRetract,
+  imageSrc,
+  imageAlt,
+}) {
   return (
     <div className="text-center p-4">
       <h2
@@ -43,27 +30,34 @@ function ResultComponent({ isCorrect, justification, handleNextQuestion }) {
         <p className="text-3xl mt-2" tabIndex="0" aria-label={justification}>
           {justification}
         </p>
+        {imageSrc && (
+          <img
+            src={imageSrc}
+            alt={imageAlt}
+            className="mt-4 mx-auto w-1/3 h-auto"
+            tabIndex="0"
+            aria-label={imageAlt}
+          />
+        )}
+      </div>
+      <div className="flex justify-center gap-4 mt-6">
         <button
-          onClick={() => {
-            const synth = window.speechSynthesis;
-            const utterThis = new SpeechSynthesisUtterance(justification);
-            synth.speak(utterThis);
-          }}
-          aria-label="Leer justificación en voz alta"
+          className="bg-blue-500 text-white p-2 rounded-lg text-5xl"
+          onClick={handleNextQuestion}
+          aria-label="Continuar a la siguiente pregunta"
           tabIndex="0"
-          className="text-8xl"
         >
-          ▶️
+          CONTINUAR
+        </button>
+        <button
+          className="bg-gray-500 text-white p-2 rounded-lg text-5xl"
+          onClick={handleRetract}
+          aria-label="Retroceder y cambiar respuesta"
+          tabIndex="0"
+        >
+          RETROCEDER
         </button>
       </div>
-      <button
-        className="mt-6 bg-blue-500 text-white p-2 rounded-lg text-5xl"
-        onClick={handleNextQuestion}
-        aria-label="Continuar a la siguiente pregunta"
-        tabIndex="0"
-      >
-        CONTINUAR
-      </button>
     </div>
   );
 }

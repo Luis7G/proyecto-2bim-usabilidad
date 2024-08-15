@@ -1,8 +1,8 @@
 import React from "react";
 
-function MultimediaComponent({ question, readAloud }) {
+function MultimediaComponent({ question }) {
   // Transformar la URL del video para incrustar desde un enlace corto de YouTube
-  const videoId = question.ayuda.video.split("/").pop(); // Extrae el ID del video del enlace corto
+  const videoId = question.ayuda.video.split("/").pop();
   const embedUrl = `https://www.youtube.com/embed/${videoId}`;
 
   return (
@@ -12,7 +12,7 @@ function MultimediaComponent({ question, readAloud }) {
         src={embedUrl}
         title="Video de ayuda"
         allowFullScreen
-        tabIndex="0" // Permite la navegación con el teclado
+        tabIndex="0"
         aria-label="Video de ayuda"
       ></iframe>
       <div className="flex-1 text-center">
@@ -23,22 +23,7 @@ function MultimediaComponent({ question, readAloud }) {
         >
           {question.pregunta}
         </h2>
-        <button
-          onClick={readAloud}
-          aria-label="Leer pregunta y opciones en voz alta"
-          tabIndex="0"
-          className="text-8xl"
-        >
-          ▶️
-        </button>
       </div>
-      <img
-        className="w-1/3 h-auto"
-        src={question.ayuda.imagen}
-        alt="Imagen de ayuda"
-        tabIndex="0"
-        aria-label="Imagen de ayuda"
-      />
     </div>
   );
 }
